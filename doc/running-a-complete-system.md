@@ -11,6 +11,10 @@ server. We will use the Users module as our exemplar.
     * [Fetch and build the RAML tools](#fetch-and-build-the-raml-tools)
     * [Fetch and build the Users module](#fetch-and-build-the-users-module)
 * [Client side](#client-side)
+    * [Fetch and build Stripes](#fetch-and-build-stripes)
+    * [Run the Okapi Console locally](#run-the-okapi-console-locally)
+        * [Add the Users module](#add-the-users-module)
+        * [Add the sample users](#add-the-sample-users)
 
 
 ## Introduction
