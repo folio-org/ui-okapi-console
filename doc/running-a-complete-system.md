@@ -83,13 +83,104 @@ but we don't need to run it: Okapi will do that for us when needed.
     shell2$ git clone git@github.com:folio-org/mod-users
     shell2$ cd mod-users
     shell2$ mvn install
-    shell2$ cd ..
 
 The most important output is `mod-users/target/users-fat.jar`, which
-we will later be asking Okapi to run for us.
+we will later be asking Okapi to run for us. You can test that it
+works OK by running it manually:
+
+    shell2$ java -jar target/mod-users-fat.jar
+    starting rest verticle service..........
+    [etc.]
+
+Now kill the running module, so that Okapi can start it as needed.
+
 
 ## Client side
 
-XXX To be done -- should be able to re-use some of the old
-documentation in ../testing-the-circulation-module.md
+### Fetch and build Stripes
+
+The full steps to fetch and build Stripes are described in
+[Building and running Stripes from git checkouts](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md).
+Alternatively, you may be able to build only `stripes-core` locally,
+and fetch the dependencies (`stripes-connect`, etc.) from the NPM
+repository: see
+[the Quick Start section](https://github.com/folio-org/stripes-core/blob/master/README.md#quick-start)
+of that document.
+
+Modules, including `ui-okapi-console` and `users`, may be added to the
+Stripes configuration as described in
+[the Adding more modules](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md#adding-more-modules)
+section of the build guide. In summary, you will need to add the
+desired modules to your `stripes.config.js` file, and either arrange
+for NPM to be able to find the modules from its registry or
+symbolically link the relevant source checkouts into place.
+
+### Run the Okapi Console locally
+
+Now you can run the UI server in the `stripes-core` directory, and it
+will pulls in the specified modules and make the complete set of HTML,
+CSS and JavaScript assets available:
+
+    shell2$ npm run start
+
+Point your browser to [`http://localhost:3000`](http://localhost:3000)
+to see the Stripes application's home page. From there, you can
+navigate to the Okapi Console.
+
+(You can also go to the Users UI module, but it won't work yet because
+the server-side module has not been added.)
+
+
+#### Add the Users module
+
+From within the running Stripes UI, follow these steps.
+
+First, fill in the **module proxy** section:
+
+* Click the **Okapi Console** menu item in the bar at the top of the page.
+* Click the **Modules** menu item below the top bar.
+* Click **Add module**.
+* Fill in the **Name** textbox with `Users` (or any name).
+* You can ignore the **Provides** and **Requires** entries for our present purposes.
+* Click the **+Add route** button next to the **Routing** heading.
+* Click the new **+Add HTTP method** button that has appeared to the right
+  of the new **Methods** caption.
+* Type `GET` into the **Methods** box.
+* Click the **+** button to the right of this box.
+  Another empty **Methods** box appears below the one you filled in.
+* Type `POST` into the new **HTTP method** box and click the **+** button.
+  Another empty **Methods** box appears below the one you filled in.
+* Type `PUT` into the new **HTTP method** box and click the **+** button.
+  Another empty **Methods** box appears below the one you filled in.
+* Type `DELETE` into the new **HTTP method** box and click the **+** button.
+  (Another empty **Methods** box appears below the one you filled in. Ignore it.)
+* Fill in the three elements of the routing entry as follows:
+    * Request path to module: `/users`
+    * Priority level: `30`
+    * Request type: `request-response`
+* Click the **+** button to the right of the routing entry. (Another
+  empty routing entry appears below the one you filled in. Ignore it.)
+* Click the **Add module proxy** button below the routing entries.
+
+Now deploy the module locally to the running Okapi node:
+
+* Pull down the **Node** dropdown (below the **Service ID** and **Inst ID** read-only textboxes), and select the only value that is
+  presented, `http://localhost:9130/`.
+* Fill in the **Exec** entry with the following command-line, which
+  Okapi will use to start the Users module:
+  `java -jar ../mod-users/target/mod-users-fat.jar -Dhttp.port=%p embed_mongo=true`
+* You can ignore the **Start command** and **Stop command** entries in this scenario.
+* Press the **Submit** button at bottom right. (Another empty
+  deployment entry appears below the one you filled in. Ignore it.)
+
+#### Add the sample users
+
+For historical reasons, the sample users are maintained along with the
+source code for the authorization module, `mod-auth`. So we need to
+clone this repository and use it to create the sample tenant and add
+the users.
+
+    $ git clone git@github.com:folio-org/mod-auth
+    $ cd mod-auth/testing/auth_test
+    $ ./add-users.sh
 
