@@ -12,9 +12,13 @@ server. We will use the Users module as our exemplar.
     * [Fetch and build the Users module](#fetch-and-build-the-users-module)
 * [Client side](#client-side)
     * [Fetch and build Stripes](#fetch-and-build-stripes)
-    * [Run the Okapi Console locally](#run-the-okapi-console-locally)
-        * [Add the Users module](#add-the-users-module)
+    * [Run the Stripes UI](#run-the-stripes-ui)
+    * [Set up the module, tenant and users](#set-up-the-module-tenant-and-users)
+        * [Add and deploy the Users module](#add-and-deploy-the-users-module)
+        * [Create the tenant that will own the users](#create-the-tenant-that-will-own-the-users)
+        * [Enable the Users module for the tenant](#enable-the-users-module-for-the-tenant)
         * [Add the sample users](#add-the-sample-users)
+    * [View the users](#view-the-users)
 
 
 ## Introduction
@@ -119,7 +123,7 @@ desired modules to your `stripes.config.js` file, and either arrange
 for NPM to be able to find the modules from its registry or
 symbolically link the relevant source checkouts into place.
 
-### Run the Okapi Console locally
+### Run the Stripes UI
 
 Now you can run the UI server in the `stripes-core` directory, and it
 will pulls in the specified modules and make the complete set of HTML,
@@ -132,10 +136,15 @@ to see the Stripes application's home page. From there, you can
 navigate to the Okapi Console.
 
 (You can also go to the Users UI module, but it won't work yet because
-the server-side module has not been added.)
+the server-side module has not been set up.)
 
+### Set up the module, tenant and users
 
-#### Add the Users module
+Ideally, we would be able to do all of this from the Okapi Console. At
+present, though, two sub-stages need to be done from the command-line
+due to facilities that have not yet been implemented in the Console.
+
+#### Add and deploy the Users module
 
 From within the running Stripes UI, follow these steps.
 
@@ -177,6 +186,14 @@ Now deploy the module locally to the running Okapi node:
 * Press the **Submit** button at bottom right. (Another empty
   deployment entry appears below the one you filled in. Ignore it.)
 
+#### Create the tenant that will own the users
+
+XXX
+
+#### Enable the Users module for the tenant
+
+XXX
+
 #### Add the sample users
 
 For historical reasons, the sample users are maintained along with the
@@ -187,4 +204,9 @@ the users.
     $ git clone git@github.com:folio-org/mod-auth
     $ cd mod-auth/testing/auth_test
     $ ./add-users.sh
+
+### View the users
+
+Finally, back in the Stripes UI, you can click on the top-level
+*Users* heading and see the displayed list of users.
 
