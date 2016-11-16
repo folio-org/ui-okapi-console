@@ -46,8 +46,8 @@ all locally, but there are alternatives:
 * Alternatively, you can use an existing UI and Okapi in a CI
   installation on an AWS cluster by pointing a browser to
   [`http://redux-okapi-test-aws.indexdata.com/`](http://redux-okapi-test-aws.indexdata.com/)
-  (But see the Appendix for how module deployment is done in this
-  context.)
+  (But module deployment must be done differently in this context, as
+  the JAR files are typically not available.)
 
 If you are using any of these alternative approaches, you can skip the
 server-side instructions and go straight to the
