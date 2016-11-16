@@ -220,7 +220,7 @@ to clone this repository and use it to add the users.
 
     $ git clone git@github.com:folio-org/mod-auth
     $ cd mod-auth/testing/auth_test
-    $ ./add-users.sh
+    $ sh ./add-users.sh
 
 ### View the users
 
