@@ -140,10 +140,6 @@ the server-side module has not been set up.)
 
 ### Set up the module, tenant and users
 
-Ideally, we would be able to do all of this from the Okapi Console. At
-present, though, two sub-stages need to be done from the command-line
-due to facilities that have not yet been implemented in the Console.
-
 #### Add and deploy the Users module
 
 From within the running Stripes UI, follow these steps.
@@ -189,32 +185,25 @@ Now deploy the module locally to the running Okapi node:
 #### Create the tenant that will own the users
 
 Presently, the Users module is locked to a specific tenant, with the
-ID `diku`. This will be fixed in future: for now, though, since
-tenants created in the Okapi Console have randomly assigned IDs, it's
-necessary to create the tenant from the command-line.
+ID `diku`. This will be fixed in future, but we live with it for
+now. To create the tenant, go back to the Okapi Console part of the
+Stripes UI, and follow these steps:
 
-For historical reasons, the special tenant's descriptor, along with
-the sample users, are maintained as part of the authorization module,
-`mod-auth`. So we need to clone this repository and use it to create
-the sample tenant and add the users.
+* Click the **Tenants** link.
+* Click the **Add tenant** link at the bottom.
+* Fill in the **ID** field with the value `diku`.
+* Fill in the **Name** and **Description** fields however you wish.
+* Click the **Add Tenant** button at the bottom.
 
-    $ git clone git@github.com:folio-org/mod-auth
-    $ cd mod-auth/testing/auth_test
-    $ curl -w '\n' -X POST -D - \
-            -H "Content-type: application/json" \
-            -d @./tenants/diku.json \
-            http://localhost:9130/_/proxy/tenants
+You will be returned to the tenant list, with the new Diku tenant
+listed.
 
 #### Enable the Users module for the tenant
 
-Go back to the Okapi Console part of the Stripes UI, and follow these
-steps:
-
-* Click the **Tenants** link.
-* The Diku tenant will be listed: click the **Edit** link next to it.
-* At the bottom of the edit page is a list of availables modules. The
-  only one at this stage is Users. Click the **Enable** link next to
-  it.
+* Click the **Edit** link next to the Diku tenant.
+* At the bottom of the edit page is a list of modules available to the
+  tenant. One of them (possible the only one) is Users. Click the
+  **Enable** link next to it.
 
 The Users module is now inserted into Okapi, deployed and enabled for
 the Diku tenant.
@@ -222,14 +211,19 @@ the Diku tenant.
 #### Add the sample users
 
 We may introduce a bulk-ingest facility into the Okapi Console or the
-Users module later; but for now, as with creating the Diku tenant, the
-sample users must be added from the command line.
+Users module later; but for now, the sample users must be added from
+the command line.
 
+For historical reasons, the JSON files describing the sample users are
+maintained as part of the authorization module, `mod-auth`. So we need
+to clone this repository and use it to add the users.
+
+    $ git clone git@github.com:folio-org/mod-auth
     $ cd mod-auth/testing/auth_test
     $ ./add-users.sh
 
 ### View the users
 
 Finally, back in the Stripes UI, you can click on the top-level
-*Users* heading and see the displayed list of users.
+**Users** heading and see the displayed list of users.
 
