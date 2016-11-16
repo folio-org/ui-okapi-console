@@ -218,8 +218,8 @@ For historical reasons, the JSON files describing the sample users are
 maintained as part of the authorization module, `mod-auth`. So we need
 to clone this repository and use it to add the users.
 
-    $ git clone git@github.com:folio-org/mod-auth
-    $ cd mod-auth/testing/auth_test/users
+    $ git clone git@github.com:folio-org/folio-ansible
+    $ cd folio-ansible/roles/mod-users-data/files
     $ for f in *; do
       curl -w '\n' -X POST -D - \
          -H "Content-type: application/json" \
