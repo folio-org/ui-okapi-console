@@ -37,6 +37,15 @@ class TenantForm extends Component {
                    (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')}
           Tenant</h3>
           <Row>
+           <Col componentClass={ControlLabel} sm={2}>
+            ID
+           </Col>
+           <Col sm={10}>
+              <Field name="id" component="input" type='text' disabled={tenantid} placeholder="Unique Tenant ID" />
+           </Col>
+          </Row>
+          <br/>
+          <Row>
             <Col componentClass={ControlLabel} sm={2}>
               Name
             </Col>
