@@ -13,7 +13,8 @@ import HealthConnected from './health/HealthConnected.js';
 
 
 export default ({pathname}) => <div>
-  <Match exactly pattern={pathname} component={ConsoleMenu}/>
+  <ConsoleMenu/>
+  <hr/>
   <Match exactly pattern={`${pathname}/tenants`} component={TenantList}/>
   <Match pattern={`${pathname}/tenants/edit/:tenantid`} component={TenantEdit}/> 
   <Match pattern={`${pathname}/tenants/add`} component={TenantAdd}/>
