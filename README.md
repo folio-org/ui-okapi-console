@@ -1,5 +1,12 @@
 # ui-okapi-console
 
+Copyright (C) 2016 The Open Library Foundation
+
+This software is distributed under the terms of the Apache License,
+Version 2.0. See the file "[LICENSE](LICENSE)" for more information.
+
+## Introduction
+
 This is a
 [Stripes](https://github.com/folio-org/stripes-core)
 UI module: a console for administrating
@@ -15,3 +22,6 @@ See [Running a complete FOLIO system](doc/running-a-complete-system.md)
 for information on using the Okapi Console as part of a complete
 system, and using it to start modules on the server.
 
+## Additional information
+
+Other FOLIO Developer documentation is at [dev.folio.org](http://dev.folio.org/)
