@@ -28,12 +28,12 @@ its modules (including the Users module); and on the client side,
 Stripes with its modules (include the Okapi Console and the Users
 module).
 
-To exercise the Users module from a Stripes UI, you need run both
+To exercise the Users module from a Stripes UI, you need to run both
 pieces of software. Developers may wish to install, build and run it
 all locally, but there are alternatives:
 
 * You can use the [FOLIO Ansible Playbook](https://github.com/folio-org/folio-ansible)
-  to bring up a virtual machine runing Okapi with modules including
+  to bring up a virtual machine running Okapi with modules including
   Users already running. This exposes its Okapi service on the same
   port (9130) as a local Okapi, so no configuration changes are needed
   in the UI.
@@ -117,7 +117,7 @@ repository: see
 [the Quick Start section](https://github.com/folio-org/stripes-core/blob/master/README.md#quick-start)
 of that document.
 
-Modules, including `ui-okapi-console` and `users`, may be added to the
+Modules, including `ui-okapi-console` and `mod-users`, may be added to the
 Stripes configuration as described in
 [the Adding more modules](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md#adding-more-modules)
 section of the build guide. In summary, you will need to add the
@@ -128,7 +128,7 @@ symbolically link the relevant source checkouts into place.
 ### Run the Stripes UI
 
 Now you can run the UI server in the `stripes-core` directory, and it
-will pulls in the specified modules and make the complete set of HTML,
+will pull in the specified modules and make the complete set of HTML,
 CSS and JavaScript assets available:
 
     shell2$ npm run start
@@ -187,7 +187,7 @@ Now deploy the module locally to the running Okapi node:
 #### Create the tenant that will own the users
 
 Presently, the Users module is locked to a specific tenant, with the
-ID `diku`. This will be fixed in future, but we live with it for
+ID `diku`. This will be fixed in the future, but we live with it for
 now. To create the tenant, go back to the Okapi Console part of the
 Stripes UI, and follow these steps:
 
