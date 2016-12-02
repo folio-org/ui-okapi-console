@@ -80,6 +80,8 @@ Okapi running its own shell, fetch and build in another shell:
 
     shell2$ git clone git@github.com:folio-org/raml-module-builder
     shell2$ cd raml-module-builder
+    shell2$ git submodule init
+    shell2$ git submodule update
     shell2$ mvn install
     shell2$ cd ..
 
