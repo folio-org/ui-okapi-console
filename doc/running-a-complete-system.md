@@ -123,7 +123,10 @@ Stripes configuration as described in
 section of the build guide. In summary, you will need to add the
 desired modules to your `stripes.config.js` file, and either arrange
 for NPM to be able to find the modules from its registry or
-symbolically link the relevant source checkouts into place.
+symbolically link the relevant source checkouts into place. Note that
+if you are using NPM to fetch the UI modules, you do not need to add
+symobolic links to them into your local checkout of `stripes-loader`
+(if indeed you have a local checkout).
 
 ### Run the Stripes UI
 
