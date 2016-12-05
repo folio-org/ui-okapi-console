@@ -29,7 +29,7 @@ Stripes with its modules (include the Okapi Console and the Users
 module).
 
 To exercise the Users module from a Stripes UI, you need to run both
-pieces of software. Developers may wish to install, build and run it
+sets of software. Developers may wish to install, build and run it
 all locally, but there are alternatives:
 
 * You can use the [FOLIO Ansible Playbook](https://github.com/folio-org/folio-ansible)
@@ -52,6 +52,9 @@ all locally, but there are alternatives:
 If you are using any of these alternative approaches, you can skip the
 server-side instructions and go straight to the
 [client side](#client-side).
+
+We will assume that all the software is checked out in the same
+directory, which we will designate as `$ROOT`.
 
 
 ## Server side
