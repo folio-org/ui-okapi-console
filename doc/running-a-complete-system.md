@@ -65,6 +65,7 @@ Full instructions are found in
 [the Okapi documentation](https://github.com/folio-org/okapi/blob/master/doc/guide.md#compiling-and-running)
 but the brief version is:
 
+	$ cd $ROOT
 	$ git clone git@github.com:folio-org/okapi
 	$ cd okapi
 	$ mvn install
@@ -81,18 +82,19 @@ auto-generate the server-side interface glue code from RAML
 specifications, and are needed to build the Users module. Leaving
 Okapi running its own shell, fetch and build in another shell:
 
+	$ cd $ROOT
 	$ git clone git@github.com:folio-org/raml-module-builder
 	$ cd raml-module-builder
 	$ git submodule init
 	$ git submodule update
 	$ mvn install
-	$ cd ..
 
 ### Fetch and build the Users module
 
 We need to build [the Users module](https://github.com/folio-org/mod-users),
 but we don't need to run it: Okapi will do that for us when needed.
 
+	$ cd $ROOT
 	$ git clone git@github.com:folio-org/mod-users
 	$ cd mod-users
 	$ mvn install
@@ -102,8 +104,8 @@ we will later be asking Okapi to run for us. You can test that it
 works OK by running it manually:
 
 	$ java -jar target/mod-users-fat.jar
-    starting rest verticle service..........
-    [etc.]
+	starting rest verticle service..........
+	[etc.]
 
 Now kill the running module, so that Okapi can start it as needed.
 
@@ -137,6 +139,7 @@ Now you can run the UI server in the `stripes-core` directory, and it
 will pull in the specified modules and make the complete set of HTML,
 CSS and JavaScript assets available:
 
+	$ cd $ROOT/stripes-core
 	$ npm run start
 
 Point your browser to [`http://localhost:3000`](http://localhost:3000)
@@ -226,6 +229,7 @@ For historical reasons, the JSON files describing the sample users are
 maintained as part of the authorization module, `mod-auth`. So we need
 to clone this repository and use it to add the users.
 
+	$ cd $ROOT
 	$ git clone git@github.com:folio-org/folio-ansible
 	$ cd folio-ansible/roles/mod-users-data/files
 	$ for f in *; do
