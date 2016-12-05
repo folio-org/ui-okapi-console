@@ -65,10 +65,10 @@ Full instructions are found in
 [the Okapi documentation](https://github.com/folio-org/okapi/blob/master/doc/guide.md#compiling-and-running)
 but the brief version is:
 
-    shell1$ git clone git@github.com:folio-org/okapi
-    shell1$ cd okapi
-    shell1$ mvn install
-    shell1$ mvn exec:exec
+	$ git clone git@github.com:folio-org/okapi
+	$ cd okapi
+	$ mvn install
+	$ mvn exec:exec
 
 Stopping and re-running Okapi in this way (`mvn exec:exec`) gives a
 new instance of Okapi with no state left over from earlier runs. This
@@ -81,27 +81,27 @@ auto-generate the server-side interface glue code from RAML
 specifications, and are needed to build the Users module. Leaving
 Okapi running its own shell, fetch and build in another shell:
 
-    shell2$ git clone git@github.com:folio-org/raml-module-builder
-    shell2$ cd raml-module-builder
-    shell2$ git submodule init
-    shell2$ git submodule update
-    shell2$ mvn install
-    shell2$ cd ..
+	$ git clone git@github.com:folio-org/raml-module-builder
+	$ cd raml-module-builder
+	$ git submodule init
+	$ git submodule update
+	$ mvn install
+	$ cd ..
 
 ### Fetch and build the Users module
 
 We need to build [the Users module](https://github.com/folio-org/mod-users),
 but we don't need to run it: Okapi will do that for us when needed.
 
-    shell2$ git clone git@github.com:folio-org/mod-users
-    shell2$ cd mod-users
-    shell2$ mvn install
+	$ git clone git@github.com:folio-org/mod-users
+	$ cd mod-users
+	$ mvn install
 
 The most important output is `mod-users/target/users-fat.jar`, which
 we will later be asking Okapi to run for us. You can test that it
 works OK by running it manually:
 
-    shell2$ java -jar target/mod-users-fat.jar
+	$ java -jar target/mod-users-fat.jar
     starting rest verticle service..........
     [etc.]
 
@@ -137,7 +137,7 @@ Now you can run the UI server in the `stripes-core` directory, and it
 will pull in the specified modules and make the complete set of HTML,
 CSS and JavaScript assets available:
 
-    shell2$ npm run start
+	$ npm run start
 
 Point your browser to [`http://localhost:3000`](http://localhost:3000)
 to see the Stripes application's home page. From there, you can
@@ -226,14 +226,14 @@ For historical reasons, the JSON files describing the sample users are
 maintained as part of the authorization module, `mod-auth`. So we need
 to clone this repository and use it to add the users.
 
-    $ git clone git@github.com:folio-org/folio-ansible
-    $ cd folio-ansible/roles/mod-users-data/files
-    $ for f in *; do
-      curl -w '\n' -X POST -D - \
-         -H "Content-type: application/json" \
-         -H "X-Okapi-Tenant: diku" \
-         -d @$f http://localhost:9130/users
-      done
+	$ git clone git@github.com:folio-org/folio-ansible
+	$ cd folio-ansible/roles/mod-users-data/files
+	$ for f in *; do
+	    curl -w '\n' -X POST -D - \
+	      -H "Content-type: application/json" \
+	      -H "X-Okapi-Tenant: diku" \
+	      -d @$f http://localhost:9130/users
+	    done
 
 ### View the users
 
