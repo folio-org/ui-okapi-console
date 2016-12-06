@@ -83,10 +83,8 @@ specifications, and are needed to build the Users module. Leaving
 Okapi running its own shell, fetch and build in another shell:
 
 	$ cd $ROOT
-	$ git clone git@github.com:folio-org/raml-module-builder
+	$ git clone --recursive git@github.com:folio-org/raml-module-builder
 	$ cd raml-module-builder
-	$ git submodule init
-	$ git submodule update
 	$ mvn install
 
 ### Fetch and build the Users module
@@ -95,7 +93,7 @@ We need to build [the Users module](https://github.com/folio-org/mod-users),
 but we don't need to run it: Okapi will do that for us when needed.
 
 	$ cd $ROOT
-	$ git clone git@github.com:folio-org/mod-users
+	$ git clone --recursive git@github.com:folio-org/mod-users
 	$ cd mod-users
 	$ mvn install
 
