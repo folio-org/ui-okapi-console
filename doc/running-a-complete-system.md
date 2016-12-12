@@ -95,17 +95,23 @@ but we don't need to run it: Okapi will do that for us when needed.
 	$ cd $ROOT
 	$ git clone --recursive git@github.com:folio-org/mod-users
 	$ cd mod-users
+	$ git submodule init
+	$ git submodule update
 	$ mvn install
 
 The most important output is `mod-users/target/users-fat.jar`, which
-we will later be asking Okapi to run for us. You can test that it
-works OK by running it manually:
+we will later be asking Okapi to run for us.
+
+If you wish, you can test that it works OK by running it manually:
 
 	$ java -jar target/mod-users-fat.jar
 	starting rest verticle service..........
 	[etc.]
+	... INFO Succeeded in deploying verticle
 
-Now kill the running module, so that Okapi can start it as needed.
+The output can be voluminous and rather opaque, but if it contains the
+line "Succeeded in deploying verticle" then all is well. Now kill the
+running module, so that Okapi can start it as needed.
 
 
 ## Client side
