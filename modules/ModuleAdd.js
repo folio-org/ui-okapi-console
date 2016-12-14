@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'stripes-connect';
 import ModuleForm from './ModuleForm';
 import { removeEmpty } from '../utils/removeEmptyObjectsFromArrays';
+import uuid from 'node-uuid';
 
 class ModuleAdd extends Component {
   static contextTypes = {
@@ -16,8 +17,10 @@ class ModuleAdd extends Component {
 
   create(data) {
     removeEmpty(data);
-    this.props.mutator['modules'].POST(data).then(() =>
-      this.context.router.transitionTo('/okapi-console/modules/edit/'+data.id));
+    data.id = uuid();
+    this.props.mutator['modules'].POST(data).then(() => {
+      this.context.router.transitionTo('/okapi-console/modules/edit/'+data.id);
+    })
   }
 
   cancel(data) {
