@@ -6,7 +6,7 @@ class ModuleSelector extends Component {
 
   static manifest = {
     'enabledmodules': { type: 'okapi',
-                        path: '_/proxy/tenants/:tenantid/modules',
+                        path: '_/proxy/tenants/:{tenantid}/modules',
                         clientGeneratePk: false
                       },
     'modules' :       { type: 'okapi',
