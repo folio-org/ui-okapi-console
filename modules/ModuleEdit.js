@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'stripes-connect';
 import ModuleForm from './ModuleForm';
-import { removeEmpty } from '../utils/removeEmptyObjectsFromArrays';
+import removeEmpty from '../utils/removeEmptyObjectsFromArrays';
 
 
 class ModuleEdit extends Component {
