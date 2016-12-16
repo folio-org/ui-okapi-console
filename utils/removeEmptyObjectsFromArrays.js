@@ -1,15 +1,18 @@
+/* eslint no-restricted-syntax: [0, "ForInStatement"] */
+/* ^^^--- Not really what I want: I prefer to turn off JUST ForInStatement checking */
+
 const isEmptyObject = (obj) => {
-  for (var prop in obj)
+  for (let prop in obj)
     if (Object.prototype.toString.call(obj[prop]) !== '[object Undefined]')
       if (obj[prop] && obj[prop].length > 0) return false;
   return true;
 }
 
 export const removeEmpty = (data) => {
-  for (var entry in data) {
+  for (let entry in data) {
     if (Object.prototype.toString.call(data[entry]) === '[object Array]') {
       if (data[entry].length) {
-        var i = data[entry].length;
+        let i = data[entry].length;
         while (i--) {
           if (Object.prototype.toString.call(data[entry][i]) === '[object Null]') {
             data[entry].splice(i,1);
