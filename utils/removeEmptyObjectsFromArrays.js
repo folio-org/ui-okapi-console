@@ -8,7 +8,7 @@ const isEmptyObject = (obj) => {
   return true;
 };
 
-export const removeEmpty = (data) => {
+const removeEmpty = (data) => {
   for (const entry in data) {
     if (Object.prototype.toString.call(data[entry]) === '[object Array]') {
       if (data[entry].length) {
@@ -28,3 +28,5 @@ export const removeEmpty = (data) => {
     }
   }
 };
+
+export default removeEmpty;
