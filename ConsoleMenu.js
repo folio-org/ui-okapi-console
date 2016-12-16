@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
-export default function(props) {
+export default function () {
   return <div>
     Okapi Console Menu
     [<Link to={'/okapi-console/tenants'}>Tenants</Link>]
