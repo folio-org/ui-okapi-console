@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
-{
-  var sys = require('stripes-loader!');
-}
+
 class Row extends Component {
   render() {
     const { instId, srvcId, healthMessage, healthStatus } = this.props.h;
@@ -20,7 +18,9 @@ class Row extends Component {
 
 class Health extends Component {
   componentDidMount() {
-    fetch(sys.okapi.url + '/_/discovery/health', {}).
+    var sys = require('stripes-loader!');
+    var okapi_url = sys.okapi.url;
+    fetch(okapi_url + '/_/discovery/health', {}).
      then((response) => {
       if (response.status != 200) {
         console.log('health fetch error ' + response.status);
@@ -32,7 +32,7 @@ class Health extends Component {
         });
       }
     });
-    fetch(sys.okapi.url + '/_/proxy/modules', {}).
+    fetch(okapi_url + '/_/proxy/modules', {}).
      then((response) => {
       if (response.status != 200) {
         console.log('modules fetch error ' + response.status);
