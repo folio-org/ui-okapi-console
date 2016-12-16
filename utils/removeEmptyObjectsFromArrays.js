@@ -1,3 +1,10 @@
+const isEmptyObject = (obj) => {
+  for (var prop in obj)
+    if (Object.prototype.toString.call(obj[prop]) !== '[object Undefined]')
+      if (obj[prop] && obj[prop].length > 0) return false;
+  return true;
+}
+
 export const removeEmpty = (data) => {
   for (var entry in data) {
     if (Object.prototype.toString.call(data[entry]) === '[object Array]') {
@@ -17,11 +24,4 @@ export const removeEmpty = (data) => {
       removeEmpty(data[entry]);
     }
   }
-}
-
-const isEmptyObject = (obj) => {
-  for (var prop in obj)
-    if (Object.prototype.toString.call(obj[prop]) !== '[object Undefined]')
-      if (obj[prop] && obj[prop].length > 0) return false;
-  return true;
 }
