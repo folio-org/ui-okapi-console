@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "react": "15",
-    "react-router": "next"
+    "react-router": "next",
+    "isomorphic-fetch": "^2.2.0"
   },
   "devDependencies": {
     "eslint": "^3.8.0",
