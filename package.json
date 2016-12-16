@@ -17,6 +17,10 @@
   "scripts": {
     "lint": "eslint *.js || true"
   },
+  "dependencies": {
+    "react": "15",
+    "react-router": "next"
+  },
   "devDependencies": {
     "eslint": "^3.8.0",
     "babel-eslint": "^7.0.0",
