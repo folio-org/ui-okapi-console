@@ -5,14 +5,15 @@ import fetch from 'isomorphic-fetch';
 }
 class Row extends Component {
   render() {
-    let h = this.props.h;
-    let href = "#/okapi-console/modules/edit/" + h.srvcId;
+    const { instId, srvcId, healthMessage, healthStatus } = this.props.h;
+
+    let href = "#/okapi-console/modules/edit/" + srvcId;
     return <tr>
-      <td>{h.instId}</td>
-      <td><a href={href}>{h.srvcId}</a></td>
-      <td>{this.props.map[h.srvcId]}</td>
-      <td>{h.healthMessage}</td>
-      <td>{h.healthStatus ? "true" : "false"}</td>
+      <td>{instId}</td>
+      <td><a href={href}>{srvcId}</a></td>
+      <td>{this.props.map[srvcId]}</td>
+      <td>{healthMessage}</td>
+      <td>{healthStatus ? "true" : "false"}</td>
     </tr>
   }
 }
