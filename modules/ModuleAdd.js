@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'stripes-connect';
 import ModuleForm from './ModuleForm';
 import { removeEmpty } from '../utils/removeEmptyObjectsFromArrays';
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 
 class ModuleAdd extends Component {
   static contextTypes = {
