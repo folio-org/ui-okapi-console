@@ -47,16 +47,12 @@ class Health extends Component {
   }
 
   render() {
-    if (!this.state) {
-      return <div/>
-    }
-
-    let health = this.state.health;
+    let health = this.state ? this.state.health : undefined;
+    let modules = this.state ? this.state.modules : undefined;
     if (!health) {
       return <div/>
     }
 
-    let modules = this.state.modules;
     console.log("Health.render: ",
                 "health = " + typeof(health) + ": ", health, "; ",
                 "modules = " + typeof(modules) + ": ", modules);
