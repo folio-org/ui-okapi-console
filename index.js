@@ -1,6 +1,6 @@
 import React from 'react';
 import Match from 'react-router/Match';
-import ConsoleMenu from './ConsoleMenu'
+import ConsoleMenu from './ConsoleMenu';
 import TenantList from './tenants/TenantList';
 import TenantAdd from './tenants/TenantAdd';
 import TenantEdit from './tenants/TenantEdit';
