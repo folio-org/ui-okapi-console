@@ -5,5 +5,7 @@
     "react/jsx-filename-extension": "off",
     "import/extensions": [ 1, "never" ],
     "react/jsx-wrap-multilines": "off",
+    "curly": "off",
+    "no-plusplus": "off",
   }
 }
