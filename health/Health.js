@@ -18,7 +18,7 @@ class Row extends Component {
   }
 }
 
-export default class Health extends Component {
+class Health extends Component {
   componentDidMount() {
     fetch(sys.okapi.url + '/_/discovery/health', {}).
      then((response) => {
@@ -84,3 +84,5 @@ export default class Health extends Component {
             </table>
   }
 }
+
+export default Health;
