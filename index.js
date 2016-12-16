@@ -11,7 +11,7 @@ import Health from './health/Health';
 import HealthConnected from './health/HealthConnected';
 
 
-export default ({ pathname }) => <div>
+const Users = ({ pathname }) => <div>
   <ConsoleMenu />
   <hr />
   <Match exactly pattern={`${pathname}/tenants`} component={TenantList} />
@@ -23,3 +23,9 @@ export default ({ pathname }) => <div>
   <Match exactly pattern={`${pathname}/health/health`} component={Health} />
   <Match exactly pattern={`${pathname}/health/healthconnected`} component={HealthConnected} />
 </div>;
+
+Users.propTypes = {
+  pathname: React.PropTypes.string.isRequired,
+};
+
+export default Users;
