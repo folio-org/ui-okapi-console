@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import fetch from 'isomorphic-fetch';
-import { connect } from 'stripes-connect';
+import { connect } from 'stripes-connect'; // eslint-disable-line
 
 class Row extends Component {
   render() {
