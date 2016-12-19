@@ -18,7 +18,7 @@ class Row extends Component {
 
 class Health extends Component {
   componentDidMount() {
-    var sys = require('stripes-loader!');
+    var sys = require('stripes-loader!'); // eslint-disable-line
     var okapi_url = sys.okapi.url;
     fetch(okapi_url + '/_/discovery/health', {}).
      then((response) => {
