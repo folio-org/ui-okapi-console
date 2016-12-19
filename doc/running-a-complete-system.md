@@ -192,7 +192,7 @@ Now deploy the module locally to the running Okapi node:
   presented, `http://localhost:9130/`.
 * Fill in the **Exec** entry with the following command-line, which
   Okapi will use to start the Users module:
-  `java -jar ../mod-users/target/mod-users-fat.jar -Dhttp.port=%p embed_mongo=true`
+  `java -jar ../mod-users/target/mod-users-fat.jar -Dhttp.port=%p embed_postgres=true`
 * You can ignore the **Start command** and **Stop command** entries in this scenario.
 * Press the **Submit** button at bottom right. (Another empty
   deployment entry appears below the one you filled in. Ignore it.)
