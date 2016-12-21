@@ -70,7 +70,7 @@ class TenantForm extends Component {
           </ButtonGroup>
         </Form>
         <br/>
-        {tenantid ? <ModuleSelector tenantid={tenantid} params={this.props.params} /> : null}
+        {tenantid ? <ModuleSelector params={this.props.params} /> : null}
       </div>
 
     );
