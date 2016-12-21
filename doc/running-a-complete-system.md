@@ -230,7 +230,7 @@ Users module later; but for now, the sample users must be added from
 the command line.
 
 For historical reasons, the JSON files describing the sample users are
-maintained as part of the authorization module, `mod-auth`. So we need
+maintained as part of the FOLIO Ansible module, `folio-ansible`. So we need
 to clone this repository and use it to add the users.
 
 	$ cd $ROOT
