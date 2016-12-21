@@ -31,7 +31,8 @@ class TenantEdit extends Component {
       return <TenantForm onSubmit={this.update.bind(this)}
                          cancelForm={this.cancel.bind(this)}
                          submitLabel='Save'
-                         initialValues={tenant} />
+                         initialValues={tenant}
+                         params={this.props.params} />
   }
 }
 
