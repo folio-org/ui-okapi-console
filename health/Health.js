@@ -4,56 +4,61 @@ import fetch from 'isomorphic-fetch';
 const Row = (props) => {
   const { instId, srvcId, healthMessage, healthStatus } = props.h;
 
-  let href = "#/okapi-console/modules/edit/" + srvcId;
+  const href = '#/okapi-console/modules/edit/' + srvcId;
   return <tr>
     <td>{instId}</td>
     <td><a href={href}>{srvcId}</a></td>
     <td>{props.map[srvcId]}</td>
     <td>{healthMessage}</td>
-    <td>{healthStatus ? "true" : "false"}</td>
-   </tr>
-}
+    <td>{healthStatus ? 'true' : 'false'}</td>
+  </tr>;
+};
+Row.propTypes = {
+  h: React.PropTypes.object.isRequired,
+  map: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+};
+
 
 class Health extends Component {
   componentDidMount() {
     var sys = require('stripes-loader!'); // eslint-disable-line
-    var okapi_url = sys.okapi.url;
-    fetch(okapi_url + '/_/discovery/health', {}).
-     then((response) => {
-      if (response.status != 200) {
-        console.log('health fetch error ' + response.status);
-        this.setState({ health: "error " + response.status });
-      } else {
-        console.log('health fetch success ' + response.status);
-        response.json().then((json) => {
-          this.setState({ health: json });
-        });
-      }
-    });
-    fetch(okapi_url + '/_/proxy/modules', {}).
-     then((response) => {
-      if (response.status != 200) {
-        console.log('modules fetch error ' + response.status);
-        this.setState({ health: "error " + response.status });
-      } else {
-        console.log('modules fetch success ' + response.status);
-        response.json().then((json) => {
-          this.setState({ modules: json });
-        });
-      }
-    });
+    const okapiUrl = sys.okapi.url;
+    fetch(okapiUrl + '/_/discovery/health', {}).
+      then((response) => {
+        if (response.status != 200) {
+          console.log('health fetch error ' + response.status);
+          this.setState({ health: 'error ' + response.status });
+        } else {
+          console.log('health fetch success ' + response.status);
+          response.json().then((json) => {
+            this.setState({ health: json });
+          });
+        }
+      });
+    fetch(okapiUrl + '/_/proxy/modules', {}).
+      then((response) => {
+        if (response.status != 200) {
+          console.log('modules fetch error ' + response.status);
+          this.setState({ health: 'error ' + response.status });
+        } else {
+          console.log('modules fetch success ' + response.status);
+          response.json().then((json) => {
+            this.setState({ modules: json });
+          });
+        }
+      });
   }
 
   render() {
-    let health = this.state ? this.state.health : undefined;
-    let modules = this.state ? this.state.modules : undefined;
+    const health = this.state ? this.state.health : undefined;
+    const modules = this.state ? this.state.modules : undefined;
     if (!health) {
-      return <div/>
+      return <div />;
     }
 
-    console.log("Health.render: ",
-                "health = " + typeof(health) + ": ", health, "; ",
-                "modules = " + typeof(modules) + ": ", modules);
+    console.log('Health.render: ',
+                'health = ' + typeof health + ': ', health, "; ",
+                'modules = ' + typeof modules + ': ', modules);
     let moduleId2name = {};
     if (modules) {
       for (let i = 0; i < modules.length; i++) {
