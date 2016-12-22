@@ -11,5 +11,6 @@
     "prefer-template": "off",
     "react/forbid-prop-types": [ 1, { 'forbid' : [ 'any', 'array' ] } ],
     "semi": [ "error", "always", { "omitLastInOneLineBlock": true }],
+    "comma-dangle": "off",
   }
 }
