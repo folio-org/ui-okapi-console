@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'stripes-connect'; // eslint-disable-line
 
 const Row = (props) => {
@@ -14,17 +14,26 @@ const Row = (props) => {
   </tr>;
 };
 Row.propTypes = {
-  h: React.PropTypes.object.isRequired,
-  map: React.PropTypes.object.isRequired,
+  h: PropTypes.object.isRequired,
+  map: PropTypes.object.isRequired,
 };
 
 
 class Health extends Component {
-  static manifest = { 'health':   { type: 'okapi',
-                                    pk:   'srvcId',
-                                    path: '_/discovery/health' },
-                      'modules' : { type: 'okapi',
-                                    path: '_/proxy/modules' }};
+  static propTypes = {
+    data: React.PropTypes.object.isRequired,
+  };
+
+  static manifest = {
+    health: {
+      type: 'okapi',
+      pk: 'srvcId',
+      path: '_/discovery/health' },
+    modules: {
+      type: 'okapi',
+      path: '_/proxy/modules'
+    }
+  };
 
   render() {
     const { health, modules } = this.props.data;
