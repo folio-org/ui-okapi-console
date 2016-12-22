@@ -23,8 +23,8 @@ class Health extends Component {
   componentDidMount() {
     var sys = require('stripes-loader!'); // eslint-disable-line
     const okapiUrl = sys.okapi.url;
-    fetch(okapiUrl + '/_/discovery/health', {}).
-      then((response) => {
+    fetch(okapiUrl + '/_/discovery/health', {})
+      .then((response) => {
         if (response.status >= 400) {
           console.log('health fetch error ' + response.status);
           this.setState({ health: 'error ' + response.status });
@@ -35,8 +35,8 @@ class Health extends Component {
           });
         }
       });
-    fetch(okapiUrl + '/_/proxy/modules', {}).
-      then((response) => {
+    fetch(okapiUrl + '/_/proxy/modules', {})
+      .then((response) => {
         if (response.status >= 400) {
           console.log('modules fetch error ' + response.status);
           this.setState({ health: 'error ' + response.status });
