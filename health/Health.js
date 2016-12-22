@@ -15,7 +15,7 @@ const Row = (props) => {
 };
 Row.propTypes = {
   h: React.PropTypes.object.isRequired,
-  map: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  map: React.PropTypes.object.isRequired,
 };
 
 
@@ -57,30 +57,30 @@ class Health extends Component {
     }
 
     console.log('Health.render: ',
-                'health = ' + typeof health + ': ', health, "; ",
+                'health = ' + typeof health + ': ', health, '; ',
                 'modules = ' + typeof modules + ': ', modules);
-    let moduleId2name = {};
+    const moduleId2name = {};
     if (modules) {
       for (let i = 0; i < modules.length; i++) {
-        let module = modules[i];
+        const module = modules[i];
         moduleId2name[module.id] = module.name;
       }
     }
 
     return <table>
-             <thead>
-              <tr>
-               <th>Instance ID</th>
-               <th>Service ID</th>
-               <th>Module Name</th>
-               <th>Message</th>
-               <th>Status</th>
-              </tr>
-             </thead>
-             <tbody>
-              {health.map((h, index) => { return <Row key={index} h={h} map={moduleId2name}/> })}
-             </tbody>
-            </table>
+      <thead>
+        <tr>
+          <th>Instance ID</th>
+          <th>Service ID</th>
+          <th>Module Name</th>
+          <th>Message</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {health.map((h, index) => <Row key={index} h={h} map={moduleId2name} />)}
+      </tbody>
+    </table>;
   }
 }
 
