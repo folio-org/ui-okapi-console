@@ -25,7 +25,7 @@ class Health extends Component {
     const okapiUrl = sys.okapi.url;
     fetch(okapiUrl + '/_/discovery/health', {}).
       then((response) => {
-        if (response.status != 200) {
+        if (response.status >= 400) {
           console.log('health fetch error ' + response.status);
           this.setState({ health: 'error ' + response.status });
         } else {
@@ -37,7 +37,7 @@ class Health extends Component {
       });
     fetch(okapiUrl + '/_/proxy/modules', {}).
       then((response) => {
-        if (response.status != 200) {
+        if (response.status >= 400) {
           console.log('modules fetch error ' + response.status);
           this.setState({ health: 'error ' + response.status });
         } else {
