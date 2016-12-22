@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import fetch from 'isomorphic-fetch';
 
 const Row = (props) => {
@@ -14,8 +14,8 @@ const Row = (props) => {
   </tr>;
 };
 Row.propTypes = {
-  h: React.PropTypes.object.isRequired,
-  map: React.PropTypes.object.isRequired,
+  h: PropTypes.object.isRequired,
+  map: PropTypes.object.isRequired,
 };
 
 
@@ -52,6 +52,7 @@ class Health extends Component {
   render() {
     const health = this.state ? this.state.health : undefined;
     const modules = this.state ? this.state.modules : undefined;
+
     if (!health) {
       return <div />;
     }
