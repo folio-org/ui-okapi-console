@@ -8,5 +8,6 @@
     "react/jsx-wrap-multilines": "off",
     "curly": "off",
     "no-plusplus": "off",
+    "prefer-template": "off",
   }
 }
