@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 
-class Row extends Component {
-  render() {
-    const { instId, srvcId, healthMessage, healthStatus } = this.props.h;
+const Row = (props) => {
+  const { instId, srvcId, healthMessage, healthStatus } = props.h;
 
-    let href = "#/okapi-console/modules/edit/" + srvcId;
-    return <tr>
-      <td>{instId}</td>
-      <td><a href={href}>{srvcId}</a></td>
-      <td>{this.props.map[srvcId]}</td>
-      <td>{healthMessage}</td>
-      <td>{healthStatus ? "true" : "false"}</td>
-    </tr>
-  }
+  let href = "#/okapi-console/modules/edit/" + srvcId;
+  return <tr>
+    <td>{instId}</td>
+    <td><a href={href}>{srvcId}</a></td>
+    <td>{props.map[srvcId]}</td>
+    <td>{healthMessage}</td>
+    <td>{healthStatus ? "true" : "false"}</td>
+   </tr>
 }
 
 class Health extends Component {
