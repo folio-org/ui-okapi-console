@@ -165,7 +165,7 @@ First, fill in the **module proxy** section:
 * Click the **Modules** menu item below the top bar.
 * Click **Add module**.
 * Fill in the **Name** textbox with `Users` (or any name).
-* You can ignore the **Provides** and **Requires** entries for our present purposes.
+* You can ignore the **+Add provision** and **+Add requirement** entries for our present purposes.
 * Click the **+Add route** button next to the **Routing** heading.
 * Click the new **+Add HTTP method** button that has appeared to the right
   of the new **Methods** caption.
