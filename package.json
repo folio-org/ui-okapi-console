@@ -15,12 +15,13 @@
     "route": "/okapi-console"
   },
   "scripts": {
-    "lint": "eslint *.js utils health || true",
-    "xxx-also-to-be-linted-eventually": "modules tenants"
+    "lint": "eslint *.js utils health tenants || true",
+    "xxx-also-to-be-linted-eventually": "modules"
   },
   "dependencies": {
     "react": "15",
     "react-router": "next",
+    "react-bootstrap": "^0.30.5",
     "isomorphic-fetch": "^2.2.0"
   },
   "devDependencies": {
