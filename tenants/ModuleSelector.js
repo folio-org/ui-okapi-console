@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'stripes-connect';
+import { connect } from 'stripes-connect'; // eslint-disable-line
 import { Grid, Row, Col } from 'react-bootstrap';
 
 class ModuleSelector extends Component {
