@@ -44,7 +44,8 @@ class ModuleSelector extends Component {
     var availableModuleNodes = availableModules(modules,enabledmodules).map((amodule, i) => {
       return (
         <li key={amodule.id}><span style={(amodule.enabled ? styles.bold : styles.normal)}>{amodule.name}</span>{' '}{' '}<a key={amodule.id} href='#' 
-               onClick={ (e) => {e.preventDefault(); amodule.enabled ? this.disableModule(amodule.id) : this.enableModule(amodule.id);}}>{amodule.enabled ? '[X]' : 'Enable'}</a></li>
+               onClick={ (e) => {e.preventDefault(); amodule.enabled ? this.disableModule(amodule.id) : this.enableModule(amodule.id);}}
+        >{amodule.enabled ? '[X]' : 'Enable'}</a></li>
       );
     });
 
