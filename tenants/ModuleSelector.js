@@ -3,32 +3,44 @@ import { connect } from 'stripes-connect'; // eslint-disable-line
 import { Grid, Row, Col } from 'react-bootstrap';
 
 class ModuleSelector extends Component {
+  static propTypes = {
+    mutator: React.PropTypes.shape({
+      enabledmodules: React.PropTypes.shape({
+        DELETE: React.PropTypes.func.isRequired,
+        POST: React.PropTypes.func.isRequired,
+      })
+    }),
+    data: React.PropTypes.shape({})
+  };
 
   static manifest = {
-    'enabledmodules': { type: 'okapi',
-                        path: '_/proxy/tenants/:{tenantid}/modules',
-                        clientGeneratePk: false
-                      },
-    'modules' :       { type: 'okapi',
-                        path: '_/proxy/modules' }
+    enabledmodules: {
+      type: 'okapi',
+      path: '_/proxy/tenants/:{tenantid}/modules',
+      clientGeneratePk: false
+    },
+    modules: {
+      type: 'okapi',
+      path: '_/proxy/modules'
+    }
   };
 
   enableModule(moduleId) {
-    let data = {
+    const data = {
       id: moduleId
     };
-    this.props.mutator['enabledmodules'].POST(data);
+    this.props.mutator.enabledmodules.POST(data);
   }
 
   disableModule(moduleId) {
-    let data = {
+    const data = {
       id: moduleId
     };
-    this.props.mutator['enabledmodules'].DELETE(data);
+    this.props.mutator.enabledmodules.DELETE(data);
   }
 
   render() {
-    const { data: {modules, enabledmodules } } = this.props;
+    const { data: { modules, enabledmodules } } = this.props;
 
     if (! modules || ! enabledmodules ) return <div/>;
 
