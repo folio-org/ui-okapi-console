@@ -27,7 +27,7 @@ class TenantList extends Component {
     const tenantNodes = tenants.map(tenant =>
       <li key={tenant.id}>
         {tenant.name}&nbsp;ID: {tenant.id}&nbsp;
-        [<Link to={`${pathname}/edit/${tenant.id}`}>Edit</Link>]
+        <Link to={`${pathname}/edit/${tenant.id}`}><button>Edit</button></Link>
         <button onClick={() => mutator.tenants.DELETE(tenant)}>delete</button>
       </li>
     );
