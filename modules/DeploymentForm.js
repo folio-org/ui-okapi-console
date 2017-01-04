@@ -1,26 +1,35 @@
-import React, { Component, PropTypes } from 'react'
-import { Grid, Container, Row, Col, Form, FormGroup, FormControl, ControlLabel, Input, Button, ButtonGroup, Glyphicon } from 'react-bootstrap'
-import { Field, FieldArray, reduxForm } from 'redux-form'
+import React, { Component, PropTypes } from 'react';
+import { Col, Form, FormGroup, ControlLabel, Button, ButtonGroup } from 'react-bootstrap';
+import { Field, reduxForm } from 'redux-form';
 
 class DeploymentForm extends Component {
+  static propTypes = {
+    deployNodes: PropTypes.arrayOf(PropTypes.shape({
+      nodeId: PropTypes.string,
+      url: PropTypes.string,
+    })).isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired,
+    submitting: PropTypes.bool.isRequired,
+    disable: PropTypes.bool.isRequired,
+  };
 
   render() {
     const {
       deployNodes,
       handleSubmit,
       reset,
-      handleDelete,
       submitting,
       disable
     } = this.props;
-	  return (
+    return (
       <Form horizontal >
         <FormGroup>
           <Col componentClass={ControlLabel} sm={2}>
             Service ID
           </Col>
           <Col sm={10}>
-            <Field name="srvcId" type="text" component="input" placeholder="Service/module ID  " disabled={true} />
+            <Field name="srvcId" type="text" component="input" placeholder="Service/module ID  " disabled />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -28,7 +37,7 @@ class DeploymentForm extends Component {
             Inst ID
           </Col>
           <Col sm={10}>
-            <Field name="instId" type="text" component="input" placeholder="Instance ID  " disabled={true} />
+            <Field name="instId" type="text" component="input" placeholder="Instance ID  " disabled />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -37,8 +46,8 @@ class DeploymentForm extends Component {
           </Col>
           <Col sm={10}>
             <Field name="nodeId" component="select" placeholder="select deployment node" disabled={disable} >
-              <option></option>
-              {deployNodes.map((aNode,index) => 
+              <option />
+              {deployNodes.map(aNode =>
                 <option value={aNode.nodeId} key={aNode.nodeId}>{aNode.url}</option>
               )}
             </Field>
@@ -49,7 +58,7 @@ class DeploymentForm extends Component {
             Exec
           </Col>
           <Col sm={10}>
-            <Field name="descriptor.exec" component="input" type="text" placeholder="Exec " disabled={disable}/>
+            <Field name="descriptor.exec" component="input" type="text" placeholder="Exec " disabled={disable} />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -57,7 +66,7 @@ class DeploymentForm extends Component {
             Start command
           </Col>
           <Col sm={10}>
-            <Field name="descriptor.cmdlineStart" component="input" type="text" placeholder="Command line start " disabled={disable}/>
+            <Field name="descriptor.cmdlineStart" component="input" type="text" placeholder="Command line start " disabled={disable} />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -65,20 +74,20 @@ class DeploymentForm extends Component {
             Stop command
           </Col>
           <Col sm={10}>
-            <Field name="descriptor.cmdlineStop" component="input" type="text" placeholder="Command line stop " disabled={disable}/>
+            <Field name="descriptor.cmdlineStop" component="input" type="text" placeholder="Command line stop " disabled={disable} />
           </Col>
         </FormGroup>
         { disable ?
-            <ButtonGroup className="pull-right">
-               <Button bsStyle="warning" disabled={submitting} onClick={handleSubmit}>Delete</Button> 
-            </ButtonGroup>
+          <ButtonGroup className="pull-right">
+            <Button bsStyle="warning" disabled={submitting} onClick={handleSubmit}>Delete</Button>
+          </ButtonGroup>
            :
-            <ButtonGroup className="pull-right">
-                <Button bsStyle="primary" disabled={submitting} onClick={handleSubmit}>Submit</Button>
-                <Button disabled={submitting} onClick={reset}>Reset</Button>
-            </ButtonGroup>
+          <ButtonGroup className="pull-right">
+            <Button bsStyle="primary" disabled={submitting} onClick={handleSubmit}>Submit</Button>
+            <Button disabled={submitting} onClick={reset}>Reset</Button>
+          </ButtonGroup>
         }
-        <br/><br/>
+        <br /><br />
       </Form>
     );
   }
