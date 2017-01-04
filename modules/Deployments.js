@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'stripes-connect';
+import { connect } from 'stripes-connect'; // eslint-disable-line
 import DeploymentForm from './DeploymentForm'
 
 
@@ -48,8 +48,7 @@ export class Deployments extends Component {
     return (
      <div>
      {discovery_modules.map
-       ((deployment, index) =>
-         {
+       ((deployment, index) => {
            if (deployment.srvcId===srvcId) {
              return (
                <DeploymentForm
@@ -58,7 +57,8 @@ export class Deployments extends Component {
                 deployNodes={discovery_nodes}
                 initialValues={deployment}
                 onSubmit={this.deleteDeploy.bind(this)}
-                disable={true} />
+                disable={true}
+               />
              );
            }
          }
@@ -71,7 +71,8 @@ export class Deployments extends Component {
        deployNodes={discovery_nodes}
        initialValues={ {srvcId: srvcId} }
        onSubmit={this.addDeploy.bind(this)}
-       disable={false}/>
+       disable={false}
+     />
      </div>
     );
   }
