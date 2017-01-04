@@ -73,7 +73,13 @@ class ModuleSelector extends Component {
       <li key={amodule.id}>
         <span style={(amodule.enabled ? styles.bold : styles.normal)}>{amodule.name}</span>
         {' '}{' '}
-        <button key={amodule.id} onClick={(e) => { e.preventDefault(); return amodule.enabled ? this.disableModule(amodule.id) : this.enableModule(amodule.id) }}>
+        <button
+          key={amodule.id}
+          onClick={(e) => {
+            e.preventDefault();
+            return amodule.enabled ? this.disableModule(amodule.id) : this.enableModule(amodule.id);
+          }}
+        >
           {amodule.enabled ? '[X]' : 'Enable'}
         </button>
       </li>
