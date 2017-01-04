@@ -3,17 +3,6 @@ import { Col, Form, FormGroup, ControlLabel, Button, ButtonGroup } from 'react-b
 import { Field, reduxForm } from 'redux-form';
 
 class DeploymentForm extends Component {
-  static propTypes = {
-    deployNodes: PropTypes.arrayOf(PropTypes.shape({
-      nodeId: PropTypes.string,
-      url: PropTypes.string,
-    })).isRequired,
-    handleSubmit: PropTypes.func.isRequired,
-    reset: PropTypes.func.isRequired,
-    submitting: PropTypes.bool.isRequired,
-    disable: PropTypes.bool.isRequired,
-  };
-
   render() {
     const {
       deployNodes,
@@ -92,6 +81,17 @@ class DeploymentForm extends Component {
     );
   }
 }
+
+DeploymentForm.propTypes = {
+  deployNodes: PropTypes.arrayOf(PropTypes.shape({
+    nodeId: PropTypes.string,
+    url: PropTypes.string,
+  })).isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  disable: PropTypes.bool.isRequired,
+};
 
 export default reduxForm(
   {
