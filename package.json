@@ -15,8 +15,7 @@
     "route": "/okapi-console"
   },
   "scripts": {
-    "lint": "eslint *.js utils health tenants || true",
-    "xxx-also-to-be-linted-eventually": "modules"
+    "lint": "eslint *.js utils health tenants modules || true",
   },
   "dependencies": {
     "react": "15",
