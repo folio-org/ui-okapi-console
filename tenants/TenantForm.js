@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Grid, Container, Row, Col, Form, FormGroup, FormControl, ControlLabel, Input, Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
-import {Field, reduxForm} from 'redux-form';
-import ModuleList from '../modules/ModuleList';
+import { Row, Col, Form, ControlLabel, Button, ButtonGroup } from 'react-bootstrap';
+import { Field, reduxForm } from 'redux-form';
 import ModuleSelector from './ModuleSelector';
 
 class TenantForm extends Component {
@@ -9,7 +8,12 @@ class TenantForm extends Component {
     handleSubmit: PropTypes.func.isRequired,
     cancelForm: PropTypes.func.isRequired,
     submitLabel: PropTypes.string,
-    disableFields: PropTypes.bool
+    disableFields: PropTypes.bool,
+    initialValues: PropTypes.object,
+    params: PropTypes.object,
+    pristine: PropTypes.bool,
+    reset: PropTypes.func,
+    submitting: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -23,53 +27,53 @@ class TenantForm extends Component {
       handleSubmit,
       pristine,
       submitting,
-      reset, 
-      cancelForm, 
-      submitLabel, 
+      reset,
+      cancelForm,
+      submitLabel,
       disableFields
     } = this.props;
-    let tenantid = (this.props.initialValues ? this.props.initialValues.id : null);
+    const tenantid = (this.props.initialValues ? this.props.initialValues.id : null);
     return (
       <div>
         <Form inline>
-          <h3>{(submitLabel==='Add' ? 'Add ' :
-                 (submitLabel==='Save' ? 'Edit ' :
+          <h3>{(submitLabel === 'Add' ? 'Add ' :
+                 (submitLabel === 'Save' ? 'Edit ' :
                    (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')}
           Tenant</h3>
           <Row>
-           <Col componentClass={ControlLabel} sm={2}>
-            ID
-           </Col>
-           <Col sm={10}>
-              <Field name="id" component="input" type='text' disabled={tenantid} placeholder="Unique Tenant ID" />
-           </Col>
+            <Col componentClass={ControlLabel} sm={2}>
+              ID
+            </Col>
+            <Col sm={10}>
+              <Field name="id" component="input" type="text" disabled={tenantid} placeholder="Unique Tenant ID" />
+            </Col>
           </Row>
-          <br/>
+          <br />
           <Row>
             <Col componentClass={ControlLabel} sm={2}>
               Name
             </Col>
             <Col sm={10}>
-              <Field name="name" component="input" type='text' disabled={disableFields} placeholder="Tenant's name" />
+              <Field name="name" component="input" type="text" disabled={disableFields} placeholder="Tenant's name" />
             </Col>
           </Row>
-          <br/>
+          <br />
           <Row>
             <Col componentClass={ControlLabel} sm={2}>
               Description
             </Col>
             <Col sm={10}>
-              <Field name="description" component="input" type='text' disabled={disableFields} placeholder='Description of this tenant' />
+              <Field name="description" component="input" type="text" disabled={disableFields} placeholder="Description of this tenant" />
             </Col>
           </Row>
-          <br/>
+          <br />
           <ButtonGroup>
-            <Button bsStyle='primary' disabled={pristine || submitting} onClick={handleSubmit}>{submitLabel} Tenant</Button>
-            <Button disabled={ pristine || submitting } onClick={reset}>Reset</Button>
-            <Button disabled={submitting} onClick={cancelForm}>Cancel</Button>  
+            <Button bsStyle="primary" disabled={pristine || submitting} onClick={handleSubmit}>{submitLabel} Tenant</Button>
+            <Button disabled={pristine || submitting} onClick={reset}>Reset</Button>
+            <Button disabled={submitting} onClick={cancelForm}>Cancel</Button>
           </ButtonGroup>
         </Form>
-        <br/>
+        <br />
         {tenantid ? <ModuleSelector params={this.props.params} /> : null}
       </div>
 
