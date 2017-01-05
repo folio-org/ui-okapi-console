@@ -1,19 +1,21 @@
 {
-  "name": "trivial",
-  "version": "0.0.0",
+  "name": "@folio-sample-module/okapi-console",
+  "version": "0.0.1-test",
   "description": "Okapi Console",
-  "repository": {
-    "private": true
-  },
+  "repository": "folio-org/ui-okapi-console",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=6.0.0"
+  },
+  "publishConfig" : {
+    "registry" : "https://repository.folio.org/repository/npm-folio/"
   },
   "stripes": {
     "type": "app",
     "displayName" : "Okapi Console",
     "route": "/okapi-console"
   },
+  "main": "index.js",
   "scripts": {
     "lint": "eslint *.js utils health tenants modules || true"
   },
