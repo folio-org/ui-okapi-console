@@ -10,39 +10,39 @@ const renderRequires = ({ fields }) => (
       <Row key={'new-requires'}>
         <Col sm={2}><ControlLabel>Requires</ControlLabel></Col>
         <Col sm={5}>
-          <Button type='button' bsStyle='primary' onClick={() => {fields.push({})}}>
-              <Glyphicon glyph='plus' />Add requirement
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+            <Glyphicon glyph="plus" />Add requirement
           </Button>
         </Col>
       </Row>
       : ''
     }
     {fields.map((fld, index) =>
-        <Row key={'requires'+index}>
-          <Col sm={2}>
-            {index==0 ? <ControlLabel>Requires</ControlLabel> : ''}
-          </Col>
-          <Col sm={5}>
-            <Field name={`${fld}.id`} type="text" component="input" placeholder="Module ID"/>
-          </Col>
-          <Col sm={4}>
-            <Field name={`${fld}.version`} type="text" component="input" placeholder="Version"/>
-          </Col>
-          <Col sm={1}>
-            {index==0 ?
-              <Button type='button' bsStyle='primary' onClick={() => {fields.push({})}}>
-                <Glyphicon glyph='plus' />
-              </Button>
-              :
-              <Button type='button' bsStyle='primary' onClick={() => {fields.remove(index)}}>
-                <Glyphicon glyph='minus' />
-              </Button>
-            }
-          </Col>
-        </Row>
+      <Row key={'requires' + index}>
+        <Col sm={2}>
+          {index === 0 ? <ControlLabel>Requires</ControlLabel> : ''}
+        </Col>
+        <Col sm={5}>
+          <Field name={`${fld}.id`} type="text" component="input" placeholder="Module ID" />
+        </Col>
+        <Col sm={4}>
+          <Field name={`${fld}.version`} type="text" component="input" placeholder="Version" />
+        </Col>
+        <Col sm={1}>
+          {index === 0 ?
+            <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+              <Glyphicon glyph="plus" />
+            </Button>
+            :
+            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+              <Glyphicon glyph="minus" />
+            </Button>
+          }
+        </Col>
+      </Row>
     )}
   </div>
-)
+);
 
 const renderMethods = ({ fields }) => (
   <div>
@@ -50,37 +50,37 @@ const renderMethods = ({ fields }) => (
       <Row>
         <Col sm={2}><ControlLabel>Methods</ControlLabel></Col>
         <Col sm={5}>
-          <Button type='button' bsStyle='primary' onClick={() => {fields.push()}}>
-              <Glyphicon glyph='plus' />Add HTTP method
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push() }}>
+            <Glyphicon glyph="plus" />Add HTTP method
           </Button>
         </Col>
       </Row>
       : ''
     }
-    {fields.map((fld,index) =>
-      <Row key={'method'+index}>
+    {fields.map((fld, index) =>
+      <Row key={'method' + index}>
         <Col componentClass={ControlLabel} sm={2}>
-          {' '}{(index==0 ? ' Methods' : '')}
+          {' '}{(index === 0 ? ' Methods' : '')}
         </Col>
         <Col sm={4}>
-        <Field name={fld} type="text" component="input" placeholder="HTTP method"/>
+          <Field name={fld} type="text" component="input" placeholder="HTTP method" />
         </Col>
         <Col sm={1}>
-          {index==0 ?
-            <Button type='button' bsStyle='primary' onClick={() => {fields.push();}}>
-              <Glyphicon glyph='plus' />
+          {index === 0 ?
+            <Button type="button" bsStyle="primary" onClick={() => { fields.push() }}>
+              <Glyphicon glyph="plus" />
             </Button>
             :
-            <Button type='button' bsStyle='primary' onClick={() => {fields.remove(index)}}>
-              <Glyphicon glyph='minus' />
+            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+              <Glyphicon glyph="minus" />
             </Button>
           }
         </Col>
-        <Col sm={5}/>
+        <Col sm={5} />
       </Row>
     )}
   </div>
-)
+);
 
 const renderRoutingEntries = ({ fields }) => (
   <div>
@@ -88,48 +88,48 @@ const renderRoutingEntries = ({ fields }) => (
       <Row key={'new-route'}>
         <Col sm={2}><ControlLabel>Routing</ControlLabel></Col>
         <Col sm={5}>
-          <Button type='button' bsStyle='primary' onClick={() => {fields.push({})}}>
-              <Glyphicon glyph='plus' />Add route
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+            <Glyphicon glyph="plus" />Add route
           </Button>
         </Col>
       </Row>
       : ''
     }
-    {fields.map((fld,index) =>
-      <div key={'route'+index}>
+    {fields.map((fld, index) =>
+      <div key={'route' + index}>
         <Row key={index}>
           <Col sm={2}>
-            {index==0 ? <ControlLabel>Routing</ControlLabel> : ''}
+            {index === 0 ? <ControlLabel>Routing</ControlLabel> : ''}
           </Col>
           <Col sm={10}>
-            <FieldArray name={`${fld}.methods`} component={renderMethods}/>
+            <FieldArray name={`${fld}.methods`} component={renderMethods} />
           </Col>
         </Row>
-        <br/>
+        <br />
         <Row>
           <Col sm={1}>{' '}</Col>
           <Col sm={10}>
-            <Field name={`${fld}.path`} type="text" component="input" placeholder="Request path to module"/>
-            <Field name={`${fld}.level`} type="text" component="input" placeholder="Priority level"/>
-            <Field name={`${fld}.type`} type="text" component="input" placeholder="Request type"/>
+            <Field name={`${fld}.path`} type="text" component="input" placeholder="Request path to module" />
+            <Field name={`${fld}.level`} type="text" component="input" placeholder="Priority level" />
+            <Field name={`${fld}.type`} type="text" component="input" placeholder="Request type" />
           </Col>
           <Col sm={1}>
-            {index==0 ?
-              <Button type='button' bsStyle='primary' onClick={() => {fields.push({})}}>
-                <Glyphicon glyph='plus' />
+            {index === 0 ?
+              <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+                <Glyphicon glyph="plus" />
               </Button>
               :
-              <Button type='button' bsStyle='primary' onClick={() => {fields.remove(index)}}>
-                <Glyphicon glyph='minus' />
+              <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+                <Glyphicon glyph="minus" />
               </Button>
             }
           </Col>
         </Row>
-        <br/>
+        <br />
       </div>
     )}
   </div>
-)
+);
 
 const renderProvides = ({ fields }) => (
   <div>
@@ -137,39 +137,46 @@ const renderProvides = ({ fields }) => (
       <Row key={'new-provides'}>
         <Col sm={2}><ControlLabel>Provides</ControlLabel></Col>
         <Col sm={5}>
-          <Button type='button' bsStyle='primary' onClick={() => {fields.push({})}}>
-              <Glyphicon glyph='plus' />Add provision
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+            <Glyphicon glyph="plus" />Add provision
           </Button>
         </Col>
       </Row>
       : ''
     }
     {fields.map((fld, index) =>
-        <Row key={'provides'+index}>
-          <Col sm={2}>
-            {index==0 ? <ControlLabel>Provides</ControlLabel> : ''}
-          </Col>
-          <Col sm={5}>
-            <Field name={`${fld}.id`} type="text" component="input" placeholder="Module ID"/>
-          </Col>
-          <Col sm={4}>
-            <Field name={`${fld}.version`} type="text" component="input" placeholder="Version"/>
-          </Col>
-          <Col sm={1}>
-            {index==0 ?
-              <Button type='button' bsStyle='primary' onClick={() => {fields.push({})}}>
-                <Glyphicon glyph='plus' />
-              </Button>
-              :
-              <Button type='button' bsStyle='primary' onClick={() => {fields.remove(index)}}>
-                <Glyphicon glyph='minus' />
-              </Button>
-            }
-          </Col>
-        </Row>
+      <Row key={'provides' + index}>
+        <Col sm={2}>
+          {index === 0 ? <ControlLabel>Provides</ControlLabel> : ''}
+        </Col>
+        <Col sm={5}>
+          <Field name={`${fld}.id`} type="text" component="input" placeholder="Module ID" />
+        </Col>
+        <Col sm={4}>
+          <Field name={`${fld}.version`} type="text" component="input" placeholder="Version" />
+        </Col>
+        <Col sm={1}>
+          {index === 0 ?
+            <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+              <Glyphicon glyph="plus" />
+            </Button>
+            :
+            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+              <Glyphicon glyph="minus" />
+            </Button>
+          }
+        </Col>
+      </Row>
     )}
   </div>
 );
+
+renderRequires.propTypes =
+renderMethods.propTypes =
+renderRoutingEntries.propTypes =
+renderProvides.propTypes =
+  { fields: PropTypes.object.isRequired };
+
 
 class ModuleForm extends Component {
   static propTypes = {
