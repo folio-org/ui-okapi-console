@@ -1,37 +1,55 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'stripes-connect';
+import uuid from 'uuid';
+import { connect } from 'stripes-connect'; // eslint-disable-line
 import ModuleForm from './ModuleForm';
 import removeEmpty from '../utils/removeEmptyObjectsFromArrays';
-import uuid from 'uuid';
 
 class ModuleAdd extends Component {
+  static propTypes = {
+    mutator: PropTypes.shape({
+      modules: PropTypes.shape({
+        POST: PropTypes.func.isRequired,
+      })
+    })
+  };
+
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
 
-  static manifest = { 'modules' : { type: 'okapi',
-                                    path: '_/proxy/modules',
-                                    fetch: false
-                                  }
-                    };
+  static manifest = {
+    modules: {
+      type: 'okapi',
+      path: '_/proxy/modules',
+      fetch: false
+    }
+  };
 
-  create(data) {
-    removeEmpty(data);
-    data.id = uuid();
-    this.props.mutator['modules'].POST(data).then(() => {
-      this.context.router.transitionTo('/okapi-console/modules/edit/'+data.id);
-    })
+  constructor(props) {
+    super(props);
+    this.create = this.create.bind(this);
+    this.cancel = this.cancel.bind(this);
   }
 
-  cancel(data) {
+  create(data) {
+    const d2 = Object.assign({}, data, { id: uuid() });
+    removeEmpty(d2);
+    this.props.mutator.modules.POST(d2).then(() => {
+      this.context.router.transitionTo('/okapi-console/modules/edit/' + d2.id);
+    });
+  }
+
+  cancel() {
     this.context.router.transitionTo('/okapi-console/modules');
   }
 
   render() {
     return (
-        <ModuleForm onSubmit={this.create.bind(this)} 
-                    cancelForm={this.cancel.bind(this)} 
-                    submitLabel='Add' />
+      <ModuleForm
+        onSubmit={this.create}
+        cancelForm={this.cancel}
+        submitLabel="Add"
+      />
     );
   }
 }
