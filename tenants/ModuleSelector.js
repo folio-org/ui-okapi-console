@@ -80,7 +80,7 @@ class ModuleSelector extends Component {
             return amodule.enabled ? this.disableModule(amodule.id) : this.enableModule(amodule.id);
           }}
         >
-          {amodule.enabled ? '[X]' : 'Enable'}
+          {amodule.enabled ? 'Disable' : 'Enable'}
         </button>
       </li>
     );
