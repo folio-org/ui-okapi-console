@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'stripes-connect'; // eslint-disable-line
 import { Grid, Container, Row, Col, Form, FormGroup, FormControl, ControlLabel, Input, Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 import {Field, FieldArray, reduxForm} from 'redux-form';
 import Deployments from './Deployments';
