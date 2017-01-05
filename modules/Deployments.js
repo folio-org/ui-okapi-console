@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'stripes-connect'; // eslint-disable-line
 import DeploymentForm from './DeploymentForm';
 
-export class Deployments extends Component {
+export class tmpDeployments extends Component {
   static propTypes = {
     data: PropTypes.object,
     mutator: PropTypes.shape({
@@ -88,4 +88,4 @@ export class Deployments extends Component {
   }
 }
 
-export default connect(Deployments, 'okapi-console');
+export default connect(tmpDeployments, 'okapi-console');
