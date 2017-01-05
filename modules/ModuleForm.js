@@ -1,14 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'stripes-connect'; // eslint-disable-line
-import { Grid, Container, Row, Col, Form, FormGroup, FormControl, ControlLabel, Input, Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
-import {Field, FieldArray, reduxForm} from 'redux-form';
+import { Row, Col, Form, ControlLabel, Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
+import { Field, FieldArray, reduxForm } from 'redux-form';
 import Deployments from './Deployments';
 
 class ModuleForm extends Component {
   static propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    pristine: PropTypes.bool,
+    reset: PropTypes.func.isRequired,
+    submitting: PropTypes.bool,
     cancelForm: PropTypes.func.isRequired,
     submitLabel: PropTypes.string,
-    disableFields: PropTypes.bool
+    initialValues: PropTypes.object,
   };
 
   static defaultProps = {
@@ -18,45 +22,45 @@ class ModuleForm extends Component {
 
   render() {
     const {
-      handleSubmit, 
+      handleSubmit,
       pristine,
       reset,
       submitting,
-      cancelForm, 
+      cancelForm,
       submitLabel,
       initialValues
     } = this.props;
 
-    let id = (initialValues ? initialValues.id : '');
+    const id = (initialValues ? initialValues.id : '');
     return (
       <div>
         <Form inline>
-              <h3>{(submitLabel==='Add' ? 'Add ' :
-                     (submitLabel==='Save' ? 'Edit ' :
-                       (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')} module proxy</h3>
-              <Row>
-                <Col componentClass={ControlLabel} sm={2}>
-                  Name
-                </Col>
-                <Col sm={10}>
-                  <Field name="name" component="input" type='text' placeholder='Module name' />
-                </Col>
-              </Row>
-              <br/>
-              <FieldArray name="provides" component={renderProvides} />
-              <br/>
-              <FieldArray name="requires" component={renderRequires} />
-              <br/>
-              <FieldArray name="routingEntries" component={renderRoutingEntries} />
-              <ButtonGroup className='pull-right'>
-                <Button type='submit' bsStyle='primary' disabled={submitting||(pristine)} onClick={handleSubmit}>{submitLabel} module proxy</Button>
-                <Button type='reset' disabled={submitting||pristine} onClick={reset}>Reset</Button>
-                <Button type='button' disabled={submitting} onClick={cancelForm}>{pristine? 'Go back' : 'Cancel'}</Button>
-              </ButtonGroup>
+          <h3>{(submitLabel === 'Add' ? 'Add ' :
+                (submitLabel === 'Save' ? 'Edit ' :
+                 (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')} module proxy</h3>
+          <Row>
+            <Col componentClass={ControlLabel} sm={2}>
+              Name
+            </Col>
+            <Col sm={10}>
+              <Field name="name" component="input" type="text" placeholder="Module name" />
+            </Col>
+          </Row>
+          <br />
+          <FieldArray name="provides" component={renderProvides} />
+          <br />
+          <FieldArray name="requires" component={renderRequires} />
+          <br />
+          <FieldArray name="routingEntries" component={renderRoutingEntries} />
+          <ButtonGroup className="pull-right">
+            <Button type="submit" bsStyle="primary" disabled={submitting || (pristine)} onClick={handleSubmit}>{submitLabel} module proxy</Button>
+            <Button type="reset" disabled={submitting || pristine} onClick={reset}>Reset</Button>
+            <Button type="button" disabled={submitting} onClick={cancelForm}>{pristine ? 'Go back' : 'Cancel'}</Button>
+          </ButtonGroup>
         </Form>
-        <br/><br/>
-        <Deployments srvcId={id ? id : ''} />
-      </div>)  
+        <br /><br />
+        <Deployments srvcId={id || ''} />
+      </div>);
   }
 }
 
