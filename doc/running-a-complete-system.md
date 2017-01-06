@@ -184,6 +184,7 @@ First, fill in the **module proxy** section:
     * Request type: `request-response`
 * Click the **+** button to the right of the routing entry. (Another
   empty routing entry appears below the one you filled in. Ignore it.)
+* XXX Horrible temporary hack: for now, we also need to make a routing entry for POST to `/tenant`. See STRIPES-126.
 * Click the **Add module proxy** button below the routing entries.
 
 Now deploy the module locally to the running Okapi node:
