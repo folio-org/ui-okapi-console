@@ -24,16 +24,17 @@ class Health extends Component {
     data: React.PropTypes.object.isRequired,
   };
 
-  static manifest = {
+  static manifest = Object.freeze({
     health: {
       type: 'okapi',
       pk: 'srvcId',
-      path: '_/discovery/health' },
+      path: '_/discovery/health'
+    },
     modules: {
       type: 'okapi',
       path: '_/proxy/modules'
     }
-  };
+  });
 
   render() {
     const { health, modules } = this.props.data;
