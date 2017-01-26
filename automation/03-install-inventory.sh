@@ -33,6 +33,6 @@ for f in sample-item.json; do
     curl -w '\n' -X POST -D - \
         -H "Content-type: application/json" \
         -H "X-Okapi-Tenant: diku" \
-        -d @$f http://localhost:9130/item-storage
+        -d @$f http://localhost:9130/item-storage/items
     done
 
