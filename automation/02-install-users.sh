@@ -10,13 +10,6 @@ TMP=/tmp/okapi.91222
 #trap 'rm -f $TMP' 0 1 15
 
 if true; then
-# Create the "diku" tenant
-curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
-    -d '{"id": "diku", "name": "Diku"}' \
-    $OKAPI_URL/_/proxy/tenants
-fi
-
-if true; then
 # Set up proxying for "users" module
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d @../../mod-users/ModuleDescriptor.json \
