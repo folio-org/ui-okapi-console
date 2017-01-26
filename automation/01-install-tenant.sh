@@ -9,4 +9,3 @@ OKAPI_URL=http://localhost:9130
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d '{"id": "diku", "name": "Diku"}' \
     $OKAPI_URL/_/proxy/tenants
-fi
