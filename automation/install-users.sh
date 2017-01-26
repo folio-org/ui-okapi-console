@@ -35,13 +35,3 @@ curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d '{"id": "users-module"}' \
     $OKAPI_URL/_/proxy/tenants/diku/modules
 fi
-
-if false; then
-# Initialise "users" module for "diku" tenant
-# ### This can't work for more than one module, as we need the /tenant route
-curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
-    -H "X-Okapi-Tenant: diku" \
-    -d '{"id": "'$srvcId'"}' \
-    $OKAPI_URL/tenant
-fi
-
