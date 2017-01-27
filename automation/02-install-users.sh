@@ -6,8 +6,8 @@
 # * Okapi is already running
 
 OKAPI_URL=http://localhost:9130
-TMP=/tmp/okapi.91222
-#trap 'rm -f $TMP' 0 1 15
+TMP=/tmp/okapi.$$
+trap 'rm -f $TMP' 0 1 15
 
 # Set up proxying for "users" module
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
