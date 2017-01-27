@@ -9,7 +9,7 @@
 #	$ git clone git@github.com:folio-org/mod-metadata
 #	$ git submodule init && git submodule update
 #	$ cd inventory-storage
-#	$ mvn install -Dmaven.test.skip=true
+#	$ mvn install
 
 OKAPI_URL=http://localhost:9130
 
