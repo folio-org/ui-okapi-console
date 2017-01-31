@@ -122,9 +122,9 @@ The full steps to fetch and build Stripes are described in
 [Building and running Stripes from git checkouts](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md).
 Alternatively, you may be able to build only `stripes-core` locally,
 and fetch the dependencies (`stripes-connect`, etc.) from the NPM
-repository: see
-[the Quick Start section](https://github.com/folio-org/stripes-core/blob/master/README.md#quick-start)
-of that document.
+repository: see the
+[Quick Start](https://github.com/folio-org/stripes-core/blob/master/doc/quick-start.md)
+document.
 
 Modules, including `ui-okapi-console` and `mod-users`, may be added to the
 Stripes configuration as described in
