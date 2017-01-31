@@ -29,7 +29,7 @@ curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     $OKAPI_URL/_/proxy/tenants/diku/modules
 
 # Add a single sample record for now
-for f in sample-item.json; do
+for f in sample-item*.json; do
     curl -w '\n' -X POST -D - \
         -H "Content-type: application/json" \
         -H "X-Okapi-Tenant: diku" \
