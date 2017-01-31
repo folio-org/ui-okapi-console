@@ -1,0 +1,17 @@
+{
+   "active" : false,
+   "patron_group" : "on_campus",
+   "type" : "patron",
+   "username" : "jacklyn",
+   "id" : "B076F7CB-9043-466A-853D-8F463B0E8C31",
+   "meta" : {
+      "creation_date" : "2002-11-04",
+      "last_login_date" : "1992-11-30"
+   },
+   "personal" : {
+      "last_name" : "Runte",
+      "first_name" : "Davion",
+      "email" : "elwyn@howell-and-sons.gov"
+   }
+}
+

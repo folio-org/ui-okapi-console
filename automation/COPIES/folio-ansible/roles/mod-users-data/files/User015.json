@@ -1,0 +1,17 @@
+{
+   "type" : "patron",
+   "username" : "augustus",
+   "id" : "3DAA8A80-99F4-488F-8075-78AF0DDFA357",
+   "active" : false,
+   "patron_group" : "on_campus",
+   "personal" : {
+      "first_name" : "Rosalee",
+      "email" : "dorcas@crooks-and-sons.af",
+      "last_name" : "Senger"
+   },
+   "meta" : {
+      "creation_date" : "2015-08-05",
+      "last_login_date" : "2009-08-07"
+   }
+}
+

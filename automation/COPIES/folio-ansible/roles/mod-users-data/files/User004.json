@@ -1,0 +1,17 @@
+{
+   "patron_group" : "on_campus",
+   "active" : true,
+   "username" : "tommie",
+   "type" : "patron",
+   "id" : "31F696CD-9F16-42F6-A246-178291AF654A",
+   "meta" : {
+      "last_login_date" : "1988-09-11",
+      "creation_date" : "1991-08-25"
+   },
+   "personal" : {
+      "email" : "gwen@legros-daugherty.cf",
+      "first_name" : "Theron",
+      "last_name" : "Will"
+   }
+}
+

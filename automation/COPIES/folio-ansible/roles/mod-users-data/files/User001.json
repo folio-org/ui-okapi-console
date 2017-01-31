@@ -1,0 +1,17 @@
+{
+   "personal" : {
+      "first_name" : "Eladio",
+      "email" : "dayna@zulauf-jast.la",
+      "last_name" : "Oberbrunner"
+   },
+   "meta" : {
+      "creation_date" : "1998-03-15",
+      "last_login_date" : "2000-02-27"
+   },
+   "id" : "73F41A0B-B5BC-4413-875B-3334E0436DD6",
+   "type" : "patron",
+   "username" : "darrell",
+   "active" : true,
+   "patron_group" : "on_campus"
+}
+

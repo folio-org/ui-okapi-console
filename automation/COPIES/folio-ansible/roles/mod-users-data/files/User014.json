@@ -1,0 +1,17 @@
+{
+   "username" : "bridie",
+   "type" : "patron",
+   "id" : "83DF77C7-92E7-4C82-A46C-BF168417CDB3",
+   "patron_group" : "on_campus",
+   "active" : true,
+   "personal" : {
+      "last_name" : "Price",
+      "first_name" : "Hadley",
+      "email" : "leland@franecki-leffler.sr"
+   },
+   "meta" : {
+      "creation_date" : "1993-09-19",
+      "last_login_date" : "1987-06-30"
+   }
+}
+

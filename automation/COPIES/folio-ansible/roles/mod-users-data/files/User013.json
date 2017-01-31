@@ -1,0 +1,17 @@
+{
+   "active" : true,
+   "patron_group" : "on_campus",
+   "id" : "BC61E547-026C-43FD-93F0-BA18BD361292",
+   "type" : "patron",
+   "username" : "alford",
+   "meta" : {
+      "creation_date" : "2008-12-12",
+      "last_login_date" : "1989-11-21"
+   },
+   "personal" : {
+      "first_name" : "Alexa",
+      "email" : "aida@pouros-ernser-and-balistreri.mw",
+      "last_name" : "Zulauf"
+   }
+}
+

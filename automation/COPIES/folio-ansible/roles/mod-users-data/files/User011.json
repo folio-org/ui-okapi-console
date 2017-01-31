@@ -1,0 +1,17 @@
+{
+   "meta" : {
+      "last_login_date" : "1975-09-04",
+      "creation_date" : "1989-03-20"
+   },
+   "personal" : {
+      "email" : "alexandrea@torp-renner-and-huels.cv",
+      "first_name" : "Kylee",
+      "last_name" : "Price"
+   },
+   "patron_group" : "on_campus",
+   "active" : true,
+   "id" : "07D30C33-9C44-4058-A1D3-5FCCD500A446",
+   "type" : "patron",
+   "username" : "cordell"
+}
+
