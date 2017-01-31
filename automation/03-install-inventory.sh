@@ -15,12 +15,12 @@ OKAPI_URL=http://localhost:9130
 
 # Set up proxying for "inventory-storage" module
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
-    -d @../../mod-metadata/inventory-storage/ModuleDescriptor.json \
+    -d @COPIES/mod-metadata/inventory-storage/ModuleDescriptor.json \
     $OKAPI_URL/_/proxy/modules
 
 # Deploy the "inventory-storage" module
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
-    -d @../../mod-metadata/inventory-storage/DeploymentDescriptor.json \
+    -d @COPIES/mod-metadata/inventory-storage/DeploymentDescriptor.json \
     $OKAPI_URL/_/deployment/modules
 
 # Enable the "inventory-storage" module for the "diku" tenant
