@@ -27,11 +27,11 @@ while (my $line = (<>)) {
   "title": "$name",
   "author": "$author",
   "date": "$year",
-  "comment": "$notes"
+  "comment": "$notes",
+  "barcode": "whatever"
 }
 
 __EOT__
 
     $f->close();
-    last;
 }
