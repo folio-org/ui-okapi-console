@@ -28,8 +28,9 @@ curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d '{"id": "inventory-storage"}' \
     $OKAPI_URL/_/proxy/tenants/diku/modules
 
-# Add a single sample record for now
-for f in sample-item*.json; do
+# Add sample records for now
+(cd sample-items; perl csv2json_items.pl sample-items.csv)
+for f in sample-items/*.json; do
     curl -w '\n' -X POST -D - \
         -H "Content-type: application/json" \
         -H "X-Okapi-Tenant: diku" \
