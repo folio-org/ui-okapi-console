@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "react": "15",
-    "react-router": "next",
+    "react-router": "4.0.0-alpha.6",
     "react-bootstrap": "^0.30.5",
     "react-dom": ">=0.14.0",
     "react-redux": "^4.3.0",
