@@ -39,18 +39,6 @@ class ModuleSelector extends Component {
     modules: {
       type: 'okapi',
       path: '_/proxy/modules'
-    },
-
-    // Clearly the "magic" entry is only good when loading the Users module.
-    // This is a nasty short-term hack: see STRIPES-126.
-    magic: {
-      type: 'okapi',
-      path: 'tenant',
-      headers: {
-        'X-Okapi-Tenant': 'diku',
-        'Content-Type': 'application/json', // ### Shouldn't need to be re-specified as this is the default
-      },
-      fetch: false,
     }
   };
 
@@ -58,10 +46,7 @@ class ModuleSelector extends Component {
     const data = {
       id: moduleId
     };
-    const ret = this.props.mutator.enabledmodules.POST(data).then(() => {
-      console.log("enableModule: main POST returned -- sending Kurt's magic POST");
-      this.props.mutator.magic.POST({});
-    });
+    this.props.mutator.enabledmodules.POST(data);
   }
 
   disableModule(moduleId) {
