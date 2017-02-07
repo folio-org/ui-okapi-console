@@ -20,6 +20,7 @@ while (my $line = (<>)) {
     my $f = new IO::File(">$fileName")
 	or die "can't create file '$fileName': $!";
 
+    $id = sprintf("9a953a27-b3f7-49d7-968d-0d0a517a%04d", $id);
     print $f <<__EOT__;
 {
   "id": "$id",
