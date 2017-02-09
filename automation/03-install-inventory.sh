@@ -31,7 +31,7 @@ curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
 fi
 
 # Add sample records for now
-itemdir=../../mod-metadata/inventory-storage/sample-data/items
+itemdir=COPIES/mod-metadata/inventory-storage/sample-data/items
 if [ "x$1" = x-o ]; then
    # Use old hand-made items
    itemdir=sample-items
