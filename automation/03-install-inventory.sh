@@ -13,6 +13,7 @@
 
 OKAPI_URL=http://localhost:9130
 
+if false; then
 # Set up proxying for "inventory-storage" module
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d @COPIES/mod-metadata/inventory-storage/ModuleDescriptor.json \
@@ -27,10 +28,17 @@ curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d '{"id": "inventory-storage"}' \
     $OKAPI_URL/_/proxy/tenants/diku/modules
+fi
 
 # Add sample records for now
+itemdir=../../mod-metadata/inventory-storage/sample-data/items
+if [ "x$1" = x-o ]; then
+   # Use old hand-made items
+   itemdir=sample-items
+fi
+
 (cd sample-items; perl csv2json_items.pl sample-items.csv)
-for f in sample-items/*.json; do
+for f in $itemdir/*.json; do
     curl -w '\n' -X POST -D - \
         -H "Content-type: application/json" \
         -H "X-Okapi-Tenant: diku" \
