@@ -12,6 +12,7 @@ server. We will use the Users module as our exemplar.
     * [Fetch and build the Users module](#fetch-and-build-the-users-module)
 * [Client side](#client-side)
     * [Fetch and build Stripes](#fetch-and-build-stripes)
+    * [Disable authentication](#disable-authentication)
     * [Run the Stripes UI](#run-the-stripes-ui)
     * [Set up the module, tenant and users](#set-up-the-module-tenant-and-users)
         * [Add and deploy the Users module](#add-and-deploy-the-users-module)
@@ -136,6 +137,18 @@ symbolically link the relevant source checkouts into place. Note that
 if you are using NPM to fetch the UI modules, you do not need to add
 symobolic links to them into your local checkout of `stripes-loader`
 (if indeed you have a local checkout).
+
+### Disable authentication
+
+By default, the Stripes UI requires you to log in before you can
+access any of the UI modules. But making that work entails building
+and installing several authentication-related server-side modules, so
+it is simpler to modify the configuration of Stripes so that
+authentication is not required. (Don't do this for production
+systems!)
+
+Edit the file `stripes.config.js`, and in the `config` section change
+`disableAuth: false` to `disableAuth: true`.
 
 ### Run the Stripes UI
 
