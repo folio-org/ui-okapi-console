@@ -13,8 +13,8 @@ UI module: a console for administrating
 [Okapi](https://github.com/folio-org/okapi).
 
 It can be added to a Stripes instance by
-[the usual procedure](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md#adding-more-modules)
-and there is no corresponding server-side module to add, since the
+[the usual procedure](https://github.com/folio-org/stripes-core/blob/master/doc/quick-start.md).
+There is no corresponding server-side module to add, since the
 Okapi Console communicates with
 [Okapi's built-in web-services](https://github.com/folio-org/okapi/blob/master/doc/guide.md#okapis-own-web-services).
 
