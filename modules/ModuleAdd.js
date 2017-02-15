@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import uuid from 'uuid';
-import { connect } from 'stripes-connect'; // eslint-disable-line
+import { connect } from '@folio/stripes-connect'; // eslint-disable-line
 import ModuleForm from './ModuleForm';
 import removeEmpty from '../utils/removeEmptyObjectsFromArrays';
 

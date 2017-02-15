@@ -21,7 +21,7 @@ Row.propTypes = {
 
 class Health extends Component {
   componentDidMount() {
-    var sys = require('stripes-loader!'); // eslint-disable-line
+    var sys = require('stripes-loader'); // eslint-disable-line
     const okapiUrl = sys.okapi.url;
     fetch(okapiUrl + '/_/discovery/health', {})
       .then((response) => {

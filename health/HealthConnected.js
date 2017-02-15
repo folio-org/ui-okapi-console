@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'stripes-connect'; // eslint-disable-line
+import { connect } from '@folio/stripes-connect'; // eslint-disable-line
 
 const Row = (props) => {
   const { instId, srvcId, healthMessage, healthStatus } = props.h;
