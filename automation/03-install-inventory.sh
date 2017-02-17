@@ -6,7 +6,7 @@
 
 # To build the inventory-storage module:
 #	$ cd ../..
-#	$ git clone git@github.com:folio-org/mod-metadata
+#	$ git clone https://github.com/folio-org/mod-metadata.git
 #	$ git submodule init && git submodule update
 #	$ cd inventory-storage
 #	$ mvn install
