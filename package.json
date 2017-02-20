@@ -1,5 +1,5 @@
 {
-  "name": "@folio-sample-modules/okapi-console",
+  "name": "@folio/okapi-console",
   "version": "0.0.1-test",
   "description": "Okapi Console",
   "repository": "folio-org/ui-okapi-console",

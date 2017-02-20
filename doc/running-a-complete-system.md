@@ -119,24 +119,22 @@ running module, so that Okapi can start it as needed.
 
 ### Fetch and build Stripes
 
-The full steps to fetch and build Stripes are described in
-[Building and running Stripes from git checkouts](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md).
-Alternatively, you may be able to build only `stripes-core` locally,
-and fetch the dependencies (`stripes-connect`, etc.) from the NPM
-repository: see the
+The steps to configure Stripes are explained in the
 [Quick Start](https://github.com/folio-org/stripes-core/blob/master/doc/quick-start.md)
 document.
 
-Modules, including `ui-okapi-console` and `mod-users`, may be added to the
-Stripes configuration as described in
-[the Adding more modules](https://github.com/folio-org/stripes-core/blob/master/doc/building-from-git-checkouts.md#adding-more-modules)
-section of the build guide. In summary, you will need to add the
-desired modules to your `stripes.config.js` file, and either arrange
-for NPM to be able to find the modules from its registry or
-symbolically link the relevant source checkouts into place. Note that
-if you are using NPM to fetch the UI modules, you do not need to add
-symobolic links to them into your local checkout of `stripes-loader`
-(if indeed you have a local checkout).
+As explained there, to use local development versions of any module,
+follow the 'yarn link'
+[instructions](https://github.com/folio-org/stripes-core/blob/master/doc/quick-start.md#using-local-code).
+Otherwise, Yarn will use the published packages from the "npm-folio" repository.
+
+Add the `ui-okapi-console` module to the Stripes configuration:
+
+    $ cd $MY_DEV/stripes-sample-platform
+
+Edit the file `stripes.config.js` to add `@folio/okapi-console`.
+Note that this module is not yet published, so use a local git checkout
+and follow those 'yarn link' instructions.
 
 ### Disable authentication
 
@@ -152,12 +150,12 @@ Edit the file `stripes.config.js`, and in the `config` section change
 
 ### Run the Stripes UI
 
-Now you can run the UI server in the `stripes-core` directory, and it
+Now you can run the UI server in your `stripes-sample-platform` directory, and it
 will pull in the specified modules and make the complete set of HTML,
 CSS and JavaScript assets available:
 
-	$ cd $ROOT/stripes-core
-	$ npm run start
+	$ cd $MY_DEV/stripes-sample-platform
+	$ yarn start
 
 Point your browser to [`http://localhost:3000`](http://localhost:3000)
 to see the Stripes application's home page. From there, you can
