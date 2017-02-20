@@ -67,7 +67,7 @@ Full instructions are found in
 but the brief version is:
 
 	$ cd $ROOT
-	$ git clone git@github.com:folio-org/okapi
+	$ git clone https://github.com/folio-org/okapi.git
 	$ cd okapi
 	$ mvn install
 	$ mvn exec:exec
@@ -84,7 +84,7 @@ specifications, and are needed to build the Users module. Leaving
 Okapi running its own shell, fetch and build in another shell:
 
 	$ cd $ROOT
-	$ git clone --recursive git@github.com:folio-org/raml-module-builder
+	$ git clone --recursive https://github.com/folio-org/raml-module-builder.git
 	$ cd raml-module-builder
 	$ mvn install
 
@@ -94,7 +94,7 @@ We need to build [the Users module](https://github.com/folio-org/mod-users),
 but we don't need to run it: Okapi will do that for us when needed.
 
 	$ cd $ROOT
-	$ git clone --recursive git@github.com:folio-org/mod-users
+	$ git clone --recursive https://github.com/folio-org/mod-users.git
 	$ cd mod-users
 	$ git submodule init
 	$ git submodule update
@@ -246,7 +246,7 @@ maintained as part of the FOLIO Ansible module, `folio-ansible`. So we need
 to clone this repository and use it to add the users.
 
 	$ cd $ROOT
-	$ git clone git@github.com:folio-org/folio-ansible
+	$ git clone https://github.com/folio-org/folio-ansible.git
 	$ cd folio-ansible/roles/mod-users-data/files
 	$ for f in *; do
 	    curl -w '\n' -X POST -D - \
