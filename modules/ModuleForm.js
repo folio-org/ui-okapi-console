@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'stripes-connect'; // eslint-disable-line
+import { connect } from '@folio/stripes-connect'; // eslint-disable-line
 import { Row, Col, Form, ControlLabel, Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import Deployments from './Deployments';

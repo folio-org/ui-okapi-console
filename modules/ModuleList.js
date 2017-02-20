@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'stripes-connect'; // eslint-disable-line
+import { connect } from '@folio/stripes-connect'; // eslint-disable-line
 import { Link } from 'react-router';
 
 class ModuleList extends Component {
