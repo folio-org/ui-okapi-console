@@ -13,7 +13,6 @@
 
 OKAPI_URL=http://localhost:9130
 
-if false; then
 # Set up proxying for "inventory-storage" module
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d @COPIES/mod-metadata/inventory-storage/ModuleDescriptor.json \
@@ -28,7 +27,6 @@ curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
 curl -X POST -w '\n' -D - -H 'Content-type: application/json' \
     -d '{"id": "inventory-storage"}' \
     $OKAPI_URL/_/proxy/tenants/diku/modules
-fi
 
 # Add sample records for now
 itemdir=COPIES/mod-metadata/inventory-storage/sample-data/items
