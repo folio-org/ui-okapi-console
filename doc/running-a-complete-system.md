@@ -161,8 +161,11 @@ Point your browser to [`http://localhost:3000`](http://localhost:3000)
 to see the Stripes application's home page. From there, you can
 navigate to the Okapi Console.
 
-(You can also go to the Users UI module, but it won't work yet because
-the server-side module has not been set up.)
+You can also go to the Users UI module, but unless you are using a
+virtual machine (e.g. folio-backend) or some other method of deploying
+the modules and test data as explained above, then it will not
+work yet because the server-side module has not been set up.
+So continue with the following steps using the Okapi Console.
 
 ### Set up the module, tenant and users
 
