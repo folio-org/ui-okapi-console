@@ -179,7 +179,10 @@ First, fill in the **module proxy** section:
 * Click the **Modules** menu item below the top bar.
 * Click **Add module**.
 * Fill in the **Name** textbox with `Users` (or any name).
-* You can ignore the **+Add provision** and **+Add requirement** entries for our present purposes.
+* Click the **+Add provision** button next to the **Provides** heading.
+* Type `_tenant` into the **Module ID** box.
+* Type `1.0.0` into the **Version** box. (i.e. as specified in mod-users/ModuleDescriptor.json)
+* You can ignore the **+Add requirement** entry for our present purposes.
 * Click the **+Add route** button next to the **Routing** heading.
 * Click the new **+Add HTTP method** button that has appeared to the right
   of the new **Methods** caption.
@@ -198,7 +201,6 @@ First, fill in the **module proxy** section:
     * Request type: `request-response`
 * Click the **+** button to the right of the routing entry. (Another
   empty routing entry appears below the one you filled in. Ignore it.)
-* XXX Horrible temporary hack: for now, we also need to make a routing entry for POST to `/tenant`. See STRIPES-126.
 * Click the **Add module proxy** button below the routing entries.
 
 Now deploy the module locally to the running Okapi node:
