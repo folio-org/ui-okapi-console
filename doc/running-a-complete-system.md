@@ -62,8 +62,8 @@ directory, which we will designate as `$FOLIO_ROOT`.
 
 ### Fetch, build and run Okapi
 
-Full instructions are found in
-[the Okapi documentation](https://github.com/folio-org/okapi/blob/master/doc/guide.md#compiling-and-running)
+Full instructions are found in the
+[Okapi documentation](https://github.com/folio-org/okapi/blob/master/doc/guide.md#compiling-and-running)
 but the brief version is:
 
 	$ cd $FOLIO_ROOT
@@ -78,7 +78,7 @@ allows the Okapi Console to run against a known state.
 
 ### Fetch and build the RAML tools
 
-[These tools](https://github.com/folio-org/raml-module-builder)
+These [tools](https://github.com/folio-org/raml-module-builder)
 auto-generate the server-side interface glue code from RAML
 specifications, and are needed to build the Users module. Leaving
 Okapi running its own shell, fetch and build in another shell:
@@ -90,7 +90,7 @@ Okapi running its own shell, fetch and build in another shell:
 
 ### Fetch and build the Users module
 
-We need to build [the Users module](https://github.com/folio-org/mod-users),
+We need to build the [Users module](https://github.com/folio-org/mod-users),
 but we don't need to run it: Okapi will do that for us when needed.
 
 	$ cd $FOLIO_ROOT
