@@ -54,8 +54,8 @@ If you are using any of these alternative approaches, you can skip the
 server-side instructions and go straight to the
 [client side](#client-side).
 
-We will assume that all the software is checked out in the same
-directory, which we will designate as `$ROOT`.
+We will assume that all the software is checked out in the same parent
+directory, which we will designate as `$FOLIO_ROOT`.
 
 
 ## Server side
@@ -66,7 +66,7 @@ Full instructions are found in
 [the Okapi documentation](https://github.com/folio-org/okapi/blob/master/doc/guide.md#compiling-and-running)
 but the brief version is:
 
-	$ cd $ROOT
+	$ cd $FOLIO_ROOT
 	$ git clone https://github.com/folio-org/okapi.git
 	$ cd okapi
 	$ mvn install
@@ -83,7 +83,7 @@ auto-generate the server-side interface glue code from RAML
 specifications, and are needed to build the Users module. Leaving
 Okapi running its own shell, fetch and build in another shell:
 
-	$ cd $ROOT
+	$ cd $FOLIO_ROOT
 	$ git clone --recursive https://github.com/folio-org/raml-module-builder.git
 	$ cd raml-module-builder
 	$ mvn install
@@ -93,7 +93,7 @@ Okapi running its own shell, fetch and build in another shell:
 We need to build [the Users module](https://github.com/folio-org/mod-users),
 but we don't need to run it: Okapi will do that for us when needed.
 
-	$ cd $ROOT
+	$ cd $FOLIO_ROOT
 	$ git clone --recursive https://github.com/folio-org/mod-users.git
 	$ cd mod-users
 	$ git submodule init
@@ -250,7 +250,7 @@ For historical reasons, the JSON files describing the sample users are
 maintained as part of the FOLIO Ansible module, `folio-ansible`. So we need
 to clone this repository and use it to add the users.
 
-	$ cd $ROOT
+	$ cd $FOLIO_ROOT
 	$ git clone https://github.com/folio-org/folio-ansible.git
 	$ cd folio-ansible/roles/mod-users-data/files
 	$ for f in *; do
