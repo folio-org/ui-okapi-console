@@ -122,6 +122,8 @@ running module, so that Okapi can start it as needed.
 The steps to configure Stripes are explained in the
 [Quick Start](https://github.com/folio-org/stripes-core/blob/master/doc/quick-start.md)
 document.
+The UI Users module [ui-users](https://github.com/folio-org/ui-users)
+is enabled by default.
 
 As explained there, to use local development versions of any module,
 follow the 'yarn link'
