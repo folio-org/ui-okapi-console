@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from '@folio/stripes-connect';; // eslint-disable-line
+import { connect } from '@folio/stripes-connect';
 import { Link } from 'react-router';
 
 class TenantList extends Component {
