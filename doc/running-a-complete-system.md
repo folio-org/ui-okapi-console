@@ -26,7 +26,7 @@ server. We will use the Users module as our exemplar.
 
 Two sets of software are involved here: on the server side, Okapi with
 its modules (including the Users module); and on the client side,
-Stripes with its modules (include the Okapi Console and the Users
+Stripes with its modules (including the Okapi Console and the Users
 module).
 
 To exercise the Users module from a Stripes UI, you need to run both
@@ -67,7 +67,7 @@ Full instructions are found in the
 but the brief version is:
 
 	$ cd $FOLIO_ROOT
-	$ git clone https://github.com/folio-org/okapi.git
+	$ git clone --recursive https://github.com/folio-org/okapi.git
 	$ cd okapi
 	$ mvn install
 	$ mvn exec:exec
