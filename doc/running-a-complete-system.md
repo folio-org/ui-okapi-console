@@ -150,6 +150,12 @@ systems!)
 Edit the file `stripes.config.js`, and in the `config` section change
 `disableAuth: false` to `disableAuth: true`.
 
+> **NOTE.** This `disableAuth` option is deprecated, since many
+> facilities will no longer work without a logged-in user who has the
+> relevant permissions. Instead, it is now necessary to set up
+> authentication services and populate them with suitable users,
+> credentials and permssions. To be documented.
+
 ### Run the Stripes UI
 
 Now you can run the UI server in your `stripes-sample-platform` directory, and it
