@@ -154,7 +154,7 @@ Edit the file `stripes.config.js`, and in the `config` section change
 > facilities will no longer work without a logged-in user who has the
 > relevant permissions. Instead, it is now necessary to set up
 > authentication services and populate them with suitable users,
-> credentials and permssions. To be documented.
+> credentials and permissions. To be documented.
 
 ### Run the Stripes UI
 
