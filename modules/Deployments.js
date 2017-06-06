@@ -63,7 +63,7 @@ export class tmpDeployments extends Component {
       <div>
         {dm.map((deployment, index) => {
           if (deployment.srvcId !== srvcId)
-            return <span />;
+            return <span key={'dep-' + index.toString()} />;
 
           return <DeploymentForm
             form={'dep-' + index.toString()}

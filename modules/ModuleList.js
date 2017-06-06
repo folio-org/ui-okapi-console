@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from '@folio/stripes-connect'; // eslint-disable-line
-import { Link } from 'react-router';
+import Link from 'react-router-dom/Link';
 
 class ModuleList extends Component {
   static propTypes = {
@@ -9,8 +9,10 @@ class ModuleList extends Component {
         DELETE: React.PropTypes.func.isRequired,
       }),
     }),
-    data: React.PropTypes.shape({}),
-    pathname: React.PropTypes.string,
+    data: PropTypes.shape({}),
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
+    })
   };
 
   static manifest = {
@@ -21,7 +23,7 @@ class ModuleList extends Component {
   };
 
   render() {
-    const { data: { modules }, mutator, pathname } = this.props;
+    const { data: { modules }, mutator, location: { pathname } } = this.props;
 
     if (!modules) return null;
     const moduleNodes = modules.map(amodule =>

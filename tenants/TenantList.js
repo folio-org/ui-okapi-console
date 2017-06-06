@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from '@folio/stripes-connect';
-import { Link } from 'react-router';
+import Link from 'react-router-dom/Link';
 
 class TenantList extends Component {
   static propTypes = {
@@ -9,8 +9,10 @@ class TenantList extends Component {
         PUT: React.PropTypes.func.isRequired,
       }),
     }),
-    data: React.PropTypes.shape({}),
-    pathname: React.PropTypes.string,
+    data: PropTypes.shape({}),
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
+    }).isRequired
   };
 
   static manifest = {
@@ -21,7 +23,7 @@ class TenantList extends Component {
   };
 
   render() {
-    const { data: { tenants }, mutator, pathname } = this.props;
+    const { data: { tenants }, mutator, location: { pathname } } = this.props;
 
     if (!tenants) return null;
     const tenantNodes = tenants.map(tenant =>

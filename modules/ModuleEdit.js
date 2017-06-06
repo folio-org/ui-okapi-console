@@ -12,7 +12,9 @@ class ModuleEdit extends Component {
       })
     }),
     data: PropTypes.object,
-    params: PropTypes.object
+    match: React.PropTypes.shape({
+      params: React.PropTypes.shape({})
+    })
   };
 
   static contextTypes = {
@@ -22,7 +24,8 @@ class ModuleEdit extends Component {
   static manifest = {
     modules: {
       type: 'okapi',
-      path: '_/proxy/modules/:{moduleid}'
+      path: '_/proxy/modules/:{moduleid}',
+      fetch: false
     }
   };
 
@@ -35,16 +38,16 @@ class ModuleEdit extends Component {
   update(data) {
     removeEmpty(data);
     this.props.mutator.modules.PUT(data).then(() =>
-      this.context.router.transitionTo('/okapi-console/modules')
+      this.context.router.history.replace('/okapi-console/modules')
     );
   }
 
   cancel() {
-    this.context.router.transitionTo('/okapi-console/modules');
+    this.context.router.history.goBack();
   }
 
   render() {
-    const { data: { modules }, params: { moduleid } } = this.props;
+    const { data: { modules }, match: { params: { moduleid } } } = this.props;
 
     if (!modules) {
       return <div />;
@@ -58,4 +61,3 @@ class ModuleEdit extends Component {
 }
 
 export default connect(ModuleEdit, 'okapi-console');
-

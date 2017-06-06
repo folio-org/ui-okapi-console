@@ -34,13 +34,13 @@ class ModuleAdd extends Component {
   create(data) {
     const d2 = Object.assign({}, data, { id: uuid() });
     removeEmpty(d2);
-    this.props.mutator.modules.POST(d2).then(() => {
-      this.context.router.transitionTo('/okapi-console/modules/edit/' + d2.id);
-    });
+    this.props.mutator.modules.POST(d2).then(() =>
+      this.context.router.history.push('/okapi-console/modules/edit/' + d2.id)
+    );
   }
 
   cancel() {
-    this.context.router.transitionTo('/okapi-console/modules');
+    this.context.router.history.goBack();
   }
 
   render() {

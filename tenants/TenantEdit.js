@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from '@folio/stripes-connect';
 import TenantForm from './TenantForm';
 
-
 class TenantEdit extends Component {
   static propTypes = {
     mutator: React.PropTypes.shape({
@@ -11,7 +10,9 @@ class TenantEdit extends Component {
       }),
     }),
     data: React.PropTypes.shape({}),
-    params: React.PropTypes.shape({}),
+    match: React.PropTypes.shape({
+      params: React.PropTypes.shape({})
+    })
   };
 
   static contextTypes = {
@@ -21,7 +22,8 @@ class TenantEdit extends Component {
   static manifest = {
     tenants: {
       type: 'okapi',
-      path: '_/proxy/tenants/:{tenantid}'
+      path: '_/proxy/tenants/:{tenantid}',
+      fetch: false
     }
   };
 
@@ -32,17 +34,17 @@ class TenantEdit extends Component {
   }
 
   cancel() {
-    this.context.router.transitionTo('/okapi-console/tenants');
+    this.context.router.history.goBack();
   }
 
   update(data) {
     this.props.mutator.tenants.PUT(data).then(() =>
-      this.context.router.transitionTo('/okapi-console/tenants')
-      );
+      this.context.router.history.push('/okapi-console/tenants')
+    );
   }
 
   render() {
-    const { data: { tenants }, params: { tenantid } } = this.props;
+    const { data: { tenants }, match: { params: { tenantid } } } = this.props;
     const tenant = tenants.find(t => t.id === tenantid);
 
     return <TenantForm
