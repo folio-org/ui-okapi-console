@@ -13,7 +13,13 @@
   "stripes": {
     "type": "app",
     "displayName" : "Okapi Console",
-    "route": "/okapi-console"
+    "route": "/okapi-console",
+    "permissionSets": [
+      {
+        "permissionName": "module.okapi-console.enabled",
+        "displayName": "UI: Okapi Console module is enabled"
+      }
+    ]
   },
   "main": "index.js",
   "scripts": {
