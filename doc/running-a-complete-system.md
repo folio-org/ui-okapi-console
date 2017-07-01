@@ -4,6 +4,10 @@ This document explains the necessary steps to run a complete FOLIO
 system, including using the Okapi Console to start modules on the
 server. We will use the Users module as our exemplar.
 
+*NOTE*: This document is out-of-date. Much of it is still useful.
+However the section about adding the users modules and sample users data is out-of-date.
+It would be better at this stage to use the [Pre-built Vagrant boxes](https://github.com/folio-org/folio-ansible).
+
 <!-- ../../okapi/doc/md2toc -l 2 running-a-complete-system.md -->
 * [Introduction](#introduction)
 * [Server side](#server-side)
@@ -174,6 +178,10 @@ virtual machine (e.g. folio-backend) or some other method of deploying
 the modules and test data as explained above, then it will not
 work yet because the server-side module has not been set up.
 So continue with the following steps using the Okapi Console.
+
+*NOTE*: This document is out-of-date. Much of it is still useful.
+However the section about adding the users modules and sample users data is out-of-date.
+It would be better at this stage to use the [Pre-built Vagrant boxes](https://github.com/folio-org/folio-ansible).
 
 ### Set up the module, tenant and users
 
