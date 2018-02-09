@@ -27,10 +27,10 @@ const Users = ({ match: { path } }) => <div>
   </Switch>
 </div>;
 
-Users.propTypes= {
+Users.propTypes = {
   match: PropTypes.shape({
-    path: PropTypes.string.isRequired
-  }).isRequired
+    path: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Users;

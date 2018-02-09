@@ -4,7 +4,7 @@ import fetch from 'isomorphic-fetch';
 const Row = (props) => {
   const { instId, srvcId, healthMessage, healthStatus } = props.h;
 
-  const href = '#/okapi-console/modules/edit/' + srvcId;
+  const href = `#/okapi-console/modules/edit/${srvcId}`;
   return <tr>
     <td>{instId}</td>
     <td><a href={href}>{srvcId}</a></td>
@@ -23,25 +23,25 @@ class Health extends Component {
   componentDidMount() {
     var sys = require('stripes-loader'); // eslint-disable-line
     const okapiUrl = sys.okapi.url;
-    fetch(okapiUrl + '/_/discovery/health', {})
+    fetch(`${okapiUrl}/_/discovery/health`, {})
       .then((response) => {
         if (response.status >= 400) {
-          console.log('health fetch error ' + response.status);
-          this.setState({ health: 'error ' + response.status });
+          console.log(`health fetch error ${response.status}`);
+          this.setState({ health: `error ${response.status}` });
         } else {
-          console.log('health fetch success ' + response.status);
+          console.log(`health fetch success ${response.status}`);
           response.json().then((json) => {
             this.setState({ health: json });
           });
         }
       });
-    fetch(okapiUrl + '/_/proxy/modules', {})
+    fetch(`${okapiUrl}/_/proxy/modules`, {})
       .then((response) => {
         if (response.status >= 400) {
-          console.log('modules fetch error ' + response.status);
-          this.setState({ health: 'error ' + response.status });
+          console.log(`modules fetch error ${response.status}`);
+          this.setState({ health: `error ${response.status}` });
         } else {
-          console.log('modules fetch success ' + response.status);
+          console.log(`modules fetch success ${response.status}`);
           response.json().then((json) => {
             this.setState({ modules: json });
           });
@@ -58,8 +58,8 @@ class Health extends Component {
     }
 
     console.log('Health.render: ',
-                'health = ' + typeof health + ': ', health, '; ',
-                'modules = ' + typeof modules + ': ', modules);
+      `health = ${typeof health}: `, health, '; ',
+      `modules = ${typeof modules}: `, modules);
     const moduleId2name = {};
     if (modules) {
       for (let i = 0; i < modules.length; i++) {

@@ -11,15 +11,15 @@ class ModuleList extends Component {
     }),
     data: PropTypes.shape({}),
     location: PropTypes.shape({
-      pathname: PropTypes.string.isRequired
-    })
+      pathname: PropTypes.string.isRequired,
+    }),
   };
 
   static manifest = {
     modules: {
       type: 'okapi',
-      path: '_/proxy/modules'
-    }
+      path: '_/proxy/modules',
+    },
   };
 
   render() {
@@ -31,8 +31,7 @@ class ModuleList extends Component {
         {amodule.name}&nbsp;
         <button><Link to={`${pathname}/edit/${amodule.id}`}>Edit</Link></button>
         <button onClick={() => mutator.modules.DELETE(amodule)}>Delete</button>
-      </li>
-    );
+      </li>);
 
     return (
       <div>

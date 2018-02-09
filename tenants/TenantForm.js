@@ -19,7 +19,7 @@ class TenantForm extends Component {
   static defaultProps = {
     submitLabel: 'Submit',
     disableFields: false,
-    tenantModules: []
+    tenantModules: [],
   };
 
   render() {
@@ -30,7 +30,7 @@ class TenantForm extends Component {
       reset,
       cancelForm,
       submitLabel,
-      disableFields
+      disableFields,
     } = this.props;
     const tenantid = (this.props.initialValues ? this.props.initialValues.id : null);
     return (
@@ -39,7 +39,8 @@ class TenantForm extends Component {
           <h3>{(submitLabel === 'Add' ? 'Add ' :
                  (submitLabel === 'Save' ? 'Edit ' :
                    (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')}
-          Tenant</h3>
+          Tenant
+          </h3>
           <Row>
             <Col componentClass={ControlLabel} sm={2}>
               ID
@@ -83,6 +84,6 @@ class TenantForm extends Component {
 
 export default reduxForm(
   {
-    form: 'tenantForm'
-  }
+    form: 'tenantForm',
+  },
 )(TenantForm);

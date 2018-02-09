@@ -2,9 +2,9 @@
 /* ^^^--- Not really what I want: I prefer to turn off JUST ForInStatement checking */
 
 const isEmptyObject = (obj) => {
-  for (const prop in obj)
-    if (Object.prototype.toString.call(obj[prop]) !== '[object Undefined]')
-      if (obj[prop] && obj[prop].length > 0) return false;
+  for (const prop in obj) {
+    if (Object.prototype.toString.call(obj[prop]) !== '[object Undefined]') { if (obj[prop] && obj[prop].length > 0) return false; }
+  }
   return true;
 };
 

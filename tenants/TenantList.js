@@ -11,15 +11,15 @@ class TenantList extends Component {
     }),
     data: PropTypes.shape({}),
     location: PropTypes.shape({
-      pathname: PropTypes.string.isRequired
-    }).isRequired
+      pathname: PropTypes.string.isRequired,
+    }).isRequired,
   };
 
   static manifest = {
     tenants: {
       type: 'okapi',
-      path: '_/proxy/tenants'
-    }
+      path: '_/proxy/tenants',
+    },
   };
 
   render() {
@@ -31,8 +31,7 @@ class TenantList extends Component {
         {tenant.name}&nbsp;ID: {tenant.id}&nbsp;
         <Link to={`${pathname}/edit/${tenant.id}`}><button>Edit</button></Link>
         <button onClick={() => mutator.tenants.DELETE(tenant)}>Delete</button>
-      </li>
-    );
+      </li>);
     return (
       <div>
         <div>

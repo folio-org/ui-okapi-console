@@ -9,7 +9,7 @@ export class tmpDeployments extends Component {
       deployment_modules: PropTypes.shape({
         DELETE: PropTypes.func.isRequired,
         POST: PropTypes.func.isRequired,
-      })
+      }),
     }),
     refreshRemote: PropTypes.func,
     srvcId: PropTypes.string,
@@ -19,19 +19,19 @@ export class tmpDeployments extends Component {
     discovery_modules: {
       type: 'okapi',
       path: '_/discovery/modules',
-      pk: 'instId'
+      pk: 'instId',
     },
     discovery_nodes: {
       type: 'okapi',
       path: '_/discovery/nodes',
-      pk: 'nodeId'
+      pk: 'nodeId',
     },
     deployment_modules: {
       type: 'okapi',
       path: '_/deployment/modules',
       pk: 'instId',
-      clientGeneratePk: false
-    }
+      clientGeneratePk: false,
+    },
   };
 
   constructor(props) {
@@ -42,32 +42,28 @@ export class tmpDeployments extends Component {
 
   addDeploy(data) {
     this.props.mutator.deployment_modules.POST(data).then(() =>
-      this.props.refreshRemote(this.props)
-    );
+      this.props.refreshRemote(this.props));
   }
 
   deleteDeploy(data) {
     this.props.mutator.deployment_modules.DELETE(data).then(() =>
-      this.props.refreshRemote(this.props)
-    );
+      this.props.refreshRemote(this.props));
   }
 
   render() {
     const { data: { discovery_modules: dm, discovery_nodes: dn },
-            srvcId
-          } = this.props;
+      srvcId } = this.props;
 
     if (!dn || dn.length === 0) return <div />;
     const nextindex = (dm ? dm.length : 0);
     return (
       <div>
         {dm.map((deployment, index) => {
-          if (deployment.srvcId !== srvcId)
-            return <span key={'dep-' + index.toString()} />;
+          if (deployment.srvcId !== srvcId) { return <span key={`dep-${index.toString()}`} />; }
 
           return <DeploymentForm
-            form={'dep-' + index.toString()}
-            key={'dep-' + index.toString()}
+            form={`dep-${index.toString()}`}
+            key={`dep-${index.toString()}`}
             deployNodes={dn}
             initialValues={deployment}
             onSubmit={this.deleteDeploy}
@@ -76,8 +72,8 @@ export class tmpDeployments extends Component {
         })}
         <br />
         <DeploymentForm
-          form={'dep-' + nextindex.toString()}
-          key={'dep-' + nextindex.toString()}
+          form={`dep-${nextindex.toString()}`}
+          key={`dep-${nextindex.toString()}`}
           deployNodes={dn}
           initialValues={{ srvcId }}
           onSubmit={this.addDeploy}

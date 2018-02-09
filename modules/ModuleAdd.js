@@ -9,20 +9,20 @@ class ModuleAdd extends Component {
     mutator: PropTypes.shape({
       modules: PropTypes.shape({
         POST: PropTypes.func.isRequired,
-      })
-    })
+      }),
+    }),
   };
 
   static contextTypes = {
-    router: PropTypes.object.isRequired
+    router: PropTypes.object.isRequired,
   };
 
   static manifest = {
     modules: {
       type: 'okapi',
       path: '_/proxy/modules',
-      fetch: false
-    }
+      fetch: false,
+    },
   };
 
   constructor(props) {
@@ -35,8 +35,7 @@ class ModuleAdd extends Component {
     const d2 = Object.assign({}, data, { id: uuid() });
     removeEmpty(d2);
     this.props.mutator.modules.POST(d2).then(() =>
-      this.context.router.history.push('/okapi-console/modules/edit/' + d2.id)
-    );
+      this.context.router.history.push(`/okapi-console/modules/edit/${d2.id}`));
   }
 
   cancel() {

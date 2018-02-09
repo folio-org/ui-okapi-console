@@ -4,7 +4,7 @@ import { connect } from '@folio/stripes-connect'; // eslint-disable-line
 const Row = (props) => {
   const { instId, srvcId, healthMessage, healthStatus } = props.h;
 
-  const href = '#/okapi-console/modules/edit/' + srvcId;
+  const href = `#/okapi-console/modules/edit/${srvcId}`;
   return <tr>
     <td>{instId}</td>
     <td><a href={href}>{srvcId}</a></td>
@@ -28,12 +28,12 @@ class Health extends Component {
     health: {
       type: 'okapi',
       pk: 'srvcId',
-      path: '_/discovery/health'
+      path: '_/discovery/health',
     },
     modules: {
       type: 'okapi',
-      path: '_/proxy/modules'
-    }
+      path: '_/proxy/modules',
+    },
   });
 
   render() {
@@ -44,8 +44,8 @@ class Health extends Component {
     }
 
     console.log('Health.render: ',
-                'health = ' + typeof health + ': ', health, '; ',
-                'modules = ' + typeof modules + ': ', modules);
+      `health = ${typeof health}: `, health, '; ',
+      `modules = ${typeof modules}: `, modules);
     const moduleId2name = {};
     if (modules) {
       for (let i = 0; i < modules.length; i++) {

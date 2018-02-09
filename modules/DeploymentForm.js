@@ -8,7 +8,7 @@ function DeploymentForm(props) {
     handleSubmit,
     reset,
     submitting,
-    disable
+    disable,
   } = props;
   return (
     <Form horizontal >
@@ -36,8 +36,7 @@ function DeploymentForm(props) {
           <Field name="nodeId" component="select" placeholder="select deployment node" disabled={disable} >
             <option />
             {deployNodes.map(aNode =>
-              <option value={aNode.nodeId} key={aNode.nodeId}>{aNode.url}</option>
-            )}
+              <option value={aNode.nodeId} key={aNode.nodeId}>{aNode.url}</option>)}
           </Field>
         </Col>
       </FormGroup>
@@ -95,6 +94,6 @@ DeploymentForm.propTypes = {
 export default reduxForm(
   {
     form: 'deploymentForm',
-    enableReinitialize: true
+    enableReinitialize: true,
   },
 )(DeploymentForm);
