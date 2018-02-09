@@ -26,12 +26,12 @@
     "lint": "eslint *.js utils health tenants modules || true"
   },
   "dependencies": {
-    "@folio/stripes-connect": "^2.1.0",
-    "isomorphic-fetch": "^2.2.0",
-    "react-bootstrap": "^0.30.8",
     "react-router-dom": "^4.0.0",
-    "redux-form": "^6.1.1",
-    "uuid": "^3.0.0"
+    "react-bootstrap": "^0.30.8",
+    "redux-form": "^7.0.3",
+    "isomorphic-fetch": "^2.2.0",
+    "uuid": "^3.0.0",
+    "@folio/stripes-connect": "^3.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
