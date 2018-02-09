@@ -7,10 +7,10 @@ import Deployments from './Deployments';
 const renderRequires = ({ fields }) => (
   <div>
     {!fields.length ?
-      <Row key={'new-requires'}>
+      <Row key="new-requires">
         <Col sm={2}><ControlLabel>Requires</ControlLabel></Col>
         <Col sm={5}>
-          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}); }}>
             <Glyphicon glyph="plus" />Add requirement
           </Button>
         </Col>
@@ -18,7 +18,7 @@ const renderRequires = ({ fields }) => (
       : ''
     }
     {fields.map((fld, index) =>
-      <Row key={'requires' + index}>
+      <Row key={`requires${index}`}>
         <Col sm={2}>
           {index === 0 ? <ControlLabel>Requires</ControlLabel> : ''}
         </Col>
@@ -30,17 +30,16 @@ const renderRequires = ({ fields }) => (
         </Col>
         <Col sm={1}>
           {index === 0 ?
-            <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+            <Button type="button" bsStyle="primary" onClick={() => { fields.push({}); }}>
               <Glyphicon glyph="plus" />
             </Button>
             :
-            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index); }}>
               <Glyphicon glyph="minus" />
             </Button>
           }
         </Col>
-      </Row>
-    )}
+      </Row>)}
   </div>
 );
 
@@ -50,7 +49,7 @@ const renderMethods = ({ fields }) => (
       <Row>
         <Col sm={2}><ControlLabel>Methods</ControlLabel></Col>
         <Col sm={5}>
-          <Button type="button" bsStyle="primary" onClick={() => { fields.push() }}>
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push(); }}>
             <Glyphicon glyph="plus" />Add HTTP method
           </Button>
         </Col>
@@ -58,7 +57,7 @@ const renderMethods = ({ fields }) => (
       : ''
     }
     {fields.map((fld, index) =>
-      <Row key={'method' + index}>
+      <Row key={`method${index}`}>
         <Col componentClass={ControlLabel} sm={2}>
           {' '}{(index === 0 ? ' Methods' : '')}
         </Col>
@@ -67,28 +66,27 @@ const renderMethods = ({ fields }) => (
         </Col>
         <Col sm={1}>
           {index === 0 ?
-            <Button type="button" bsStyle="primary" onClick={() => { fields.push() }}>
+            <Button type="button" bsStyle="primary" onClick={() => { fields.push(); }}>
               <Glyphicon glyph="plus" />
             </Button>
             :
-            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index); }}>
               <Glyphicon glyph="minus" />
             </Button>
           }
         </Col>
         <Col sm={5} />
-      </Row>
-    )}
+      </Row>)}
   </div>
 );
 
 const renderRoutingEntries = ({ fields }) => (
   <div>
     {!fields.length ?
-      <Row key={'new-route'}>
+      <Row key="new-route">
         <Col sm={2}><ControlLabel>Routing</ControlLabel></Col>
         <Col sm={5}>
-          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}); }}>
             <Glyphicon glyph="plus" />Add route
           </Button>
         </Col>
@@ -96,7 +94,7 @@ const renderRoutingEntries = ({ fields }) => (
       : ''
     }
     {fields.map((fld, index) =>
-      <div key={'route' + index}>
+      <div key={`route${index}`}>
         <Row key={index}>
           <Col sm={2}>
             {index === 0 ? <ControlLabel>Routing</ControlLabel> : ''}
@@ -107,7 +105,7 @@ const renderRoutingEntries = ({ fields }) => (
         </Row>
         <br />
         <Row>
-          <Col sm={1}>{' '}</Col>
+          <Col sm={1} />
           <Col sm={10}>
             <Field name={`${fld}.path`} type="text" component="input" placeholder="Request path to module" />
             <Field name={`${fld}.level`} type="text" component="input" placeholder="Priority level" />
@@ -115,29 +113,28 @@ const renderRoutingEntries = ({ fields }) => (
           </Col>
           <Col sm={1}>
             {index === 0 ?
-              <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+              <Button type="button" bsStyle="primary" onClick={() => { fields.push({}); }}>
                 <Glyphicon glyph="plus" />
               </Button>
               :
-              <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+              <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index); }}>
                 <Glyphicon glyph="minus" />
               </Button>
             }
           </Col>
         </Row>
         <br />
-      </div>
-    )}
+      </div>)}
   </div>
 );
 
 const renderProvides = ({ fields }) => (
   <div>
     {!fields.length ?
-      <Row key={'new-provides'}>
+      <Row key="new-provides">
         <Col sm={2}><ControlLabel>Provides</ControlLabel></Col>
         <Col sm={5}>
-          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+          <Button type="button" bsStyle="primary" onClick={() => { fields.push({}); }}>
             <Glyphicon glyph="plus" />Add provision
           </Button>
         </Col>
@@ -145,7 +142,7 @@ const renderProvides = ({ fields }) => (
       : ''
     }
     {fields.map((fld, index) =>
-      <Row key={'provides' + index}>
+      <Row key={`provides${index}`}>
         <Col sm={2}>
           {index === 0 ? <ControlLabel>Provides</ControlLabel> : ''}
         </Col>
@@ -157,17 +154,16 @@ const renderProvides = ({ fields }) => (
         </Col>
         <Col sm={1}>
           {index === 0 ?
-            <Button type="button" bsStyle="primary" onClick={() => { fields.push({}) }}>
+            <Button type="button" bsStyle="primary" onClick={() => { fields.push({}); }}>
               <Glyphicon glyph="plus" />
             </Button>
             :
-            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index) }}>
+            <Button type="button" bsStyle="primary" onClick={() => { fields.remove(index); }}>
               <Glyphicon glyph="minus" />
             </Button>
           }
         </Col>
-      </Row>
-    )}
+      </Row>)}
   </div>
 );
 
@@ -191,7 +187,7 @@ class ModuleForm extends Component {
 
   static defaultProps = {
     submitLabel: 'Submit',
-    disableFields: false
+    disableFields: false,
   };
 
   render() {
@@ -202,7 +198,7 @@ class ModuleForm extends Component {
       submitting,
       cancelForm,
       submitLabel,
-      initialValues
+      initialValues,
     } = this.props;
 
     const id = (initialValues ? initialValues.id : '');
@@ -211,7 +207,8 @@ class ModuleForm extends Component {
         <Form inline>
           <h3>{(submitLabel === 'Add' ? 'Add ' :
                 (submitLabel === 'Save' ? 'Edit ' :
-                 (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')} module proxy</h3>
+                 (submitLabel === 'Delete' ? 'Delete ' : '') : '') : '')} module proxy
+          </h3>
           <Row>
             <Col componentClass={ControlLabel} sm={2}>
               Name
@@ -241,6 +238,6 @@ class ModuleForm extends Component {
 export default reduxForm(
   {
     form: 'moduleForm',
-    enableReinitialize: true
-  }
+    enableReinitialize: true,
+  },
 )(ModuleForm);

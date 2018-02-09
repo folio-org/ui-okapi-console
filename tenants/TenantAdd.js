@@ -6,21 +6,21 @@ class TenantAdd extends Component {
   static propTypes = {
     mutator: React.PropTypes.shape({
       tenants: React.PropTypes.shape({
-        POST: React.PropTypes.func.isRequired
-      })
-    })
+        POST: React.PropTypes.func.isRequired,
+      }),
+    }),
   };
 
   static contextTypes = {
-    router: PropTypes.object.isRequired
+    router: PropTypes.object.isRequired,
   };
 
   static manifest = {
     tenants: {
       type: 'okapi',
       path: '_/proxy/tenants',
-      fetch: false
-    }
+      fetch: false,
+    },
   };
 
   constructor(props) {
@@ -31,8 +31,7 @@ class TenantAdd extends Component {
 
   create(data) {
     this.props.mutator.tenants.POST(data).then(() =>
-      this.context.router.history.replace('/okapi-console/tenants')
-    );
+      this.context.router.history.replace('/okapi-console/tenants'));
   }
 
   cancel() {

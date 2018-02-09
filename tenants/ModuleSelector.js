@@ -25,33 +25,33 @@ class ModuleSelector extends Component {
       enabledmodules: React.PropTypes.shape({
         DELETE: React.PropTypes.func.isRequired,
         POST: React.PropTypes.func.isRequired,
-      })
+      }),
     }),
-    data: React.PropTypes.shape({})
+    data: React.PropTypes.shape({}),
   };
 
   static manifest = {
     enabledmodules: {
       type: 'okapi',
       path: '_/proxy/tenants/:{tenantid}/modules',
-      clientGeneratePk: false
+      clientGeneratePk: false,
     },
     modules: {
       type: 'okapi',
-      path: '_/proxy/modules'
-    }
+      path: '_/proxy/modules',
+    },
   };
 
   enableModule(moduleId) {
     const data = {
-      id: moduleId
+      id: moduleId,
     };
     this.props.mutator.enabledmodules.POST(data);
   }
 
   disableModule(moduleId) {
     const data = {
-      id: moduleId
+      id: moduleId,
     };
     this.props.mutator.enabledmodules.DELETE(data);
   }
@@ -59,11 +59,11 @@ class ModuleSelector extends Component {
   render() {
     const styles = {
       bold: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
       },
       normal: {
-        fontWeight: 'normal'
-      }
+        fontWeight: 'normal',
+      },
     };
 
     const { data: { modules, enabledmodules } } = this.props;
@@ -82,8 +82,7 @@ class ModuleSelector extends Component {
         >
           {amodule.enabled ? 'Disable' : 'Enable'}
         </button>
-      </li>
-    );
+      </li>);
 
     return (
       <div>

@@ -9,24 +9,24 @@ class ModuleEdit extends Component {
     mutator: PropTypes.shape({
       modules: PropTypes.shape({
         PUT: PropTypes.func.isRequired,
-      })
+      }),
     }),
     data: PropTypes.object,
     match: React.PropTypes.shape({
-      params: React.PropTypes.shape({})
-    })
+      params: React.PropTypes.shape({}),
+    }),
   };
 
   static contextTypes = {
-    router: PropTypes.object.isRequired
+    router: PropTypes.object.isRequired,
   };
 
   static manifest = {
     modules: {
       type: 'okapi',
       path: '_/proxy/modules/:{moduleid}',
-      fetch: false
-    }
+      fetch: false,
+    },
   };
 
   constructor(props) {
@@ -38,8 +38,7 @@ class ModuleEdit extends Component {
   update(data) {
     removeEmpty(data);
     this.props.mutator.modules.PUT(data).then(() =>
-      this.context.router.history.replace('/okapi-console/modules')
-    );
+      this.context.router.history.replace('/okapi-console/modules'));
   }
 
   cancel() {

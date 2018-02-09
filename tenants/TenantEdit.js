@@ -11,20 +11,20 @@ class TenantEdit extends Component {
     }),
     data: React.PropTypes.shape({}),
     match: React.PropTypes.shape({
-      params: React.PropTypes.shape({})
-    })
+      params: React.PropTypes.shape({}),
+    }),
   };
 
   static contextTypes = {
-    router: PropTypes.object.isRequired
+    router: PropTypes.object.isRequired,
   };
 
   static manifest = {
     tenants: {
       type: 'okapi',
       path: '_/proxy/tenants/:{tenantid}',
-      fetch: false
-    }
+      fetch: false,
+    },
   };
 
   constructor(props) {
@@ -39,8 +39,7 @@ class TenantEdit extends Component {
 
   update(data) {
     this.props.mutator.tenants.PUT(data).then(() =>
-      this.context.router.history.push('/okapi-console/tenants')
-    );
+      this.context.router.history.push('/okapi-console/tenants'));
   }
 
   render() {
