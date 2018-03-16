@@ -46,7 +46,7 @@ all locally, but there are alternatives:
 * You can configure your local UI to connect to a remote Okapi
   service, perhaps running as part of the continuous integration
   scheme. Do this by changing the Okapi URL in the `okapi.url` setting
-  in the `stripes.config.js` file.
+  in the `stripes.config.js` file (url must be absolute path) .
 
 * Alternatively, you can use an existing UI and Okapi in a CI
   installation on an AWS cluster by pointing a browser to
