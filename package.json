@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "react-router-dom": "^4.0.0",
-    "react-bootstrap": "^0.30.8",
+    "react-bootstrap": "^0.33.1",
     "redux-form": "^7.0.3",
     "isomorphic-fetch": "^2.2.0",
     "uuid": "^3.0.0",
